@@ -1,15 +1,19 @@
 package edu.ufp.inf.lp2;
 
+import edu.princeton.cs.algs4.RedBlackBST;
 import edu.princeton.cs.algs4.ST;
 import edu.princeton.cs.algs4.StdOut;
+
+import java.util.HashMap;
 
 
 public class Item {
 
-
   private Integer id;
 
-  private ST<Integer,Cache> historicoCaches;
+  private RedBlackBST<Integer,Cache> historicoCaches;
+
+  public static ST<Integer,Item> items;
 
 public Item(){
 
@@ -32,18 +36,17 @@ public Item(){
   }
 
   public void addHistoricoCaches(Cache c){
+      RedBlackBST<Integer,Cache> caches = Cache.caches;
       if (this.historicoCaches.contains(c.getId())){
         System.out.println("Cache já existente");
-        return;
+      }else if (caches.contains(c.getId())){
+        historicoCaches.put(c.getId(),c);
       }
-      historicoCaches.put(c.getId(),c);
-
-
   }
 
   public void removeFromHistoricoCaches(Cache c){
     if (this.historicoCaches.contains(c.getId())){
-      this.historicoCaches.remove(c.getId());
+      this.historicoCaches.delete(c.getId());
       return;
     }
     System.out.println("removeFromHistoricoCaches() - Cache não existente.");
@@ -56,7 +59,6 @@ public Item(){
     System.out.println("findCacheFromHistorico() - Cache não encontrada.");
   return null;
   }
-
 
   @Override
   public String toString() {

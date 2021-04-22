@@ -1,6 +1,6 @@
 package edu.ufp.inf.lp2;
-
 import edu.princeton.cs.algs4.RedBlackBST;
+import edu.princeton.cs.algs4.ST;
 import edu.princeton.cs.algs4.StdOut;
 
 public class Utilizador {
@@ -10,6 +10,9 @@ public class Utilizador {
     private RedBlackBST<Integer,Cache> hiddenCaches;
     private RedBlackBST<Integer,Cache> visitedCaches;
     private RedBlackBST<Integer,TravelBug> travelBugs;
+
+    public static ST<Integer,Utilizador> utilizadores;
+
 
     public Integer getId() {
         return id;

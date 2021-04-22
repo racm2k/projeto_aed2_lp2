@@ -1,10 +1,13 @@
 package edu.ufp.inf.lp2;
 
+import edu.princeton.cs.algs4.RedBlackBST;
+
 public class TravelBug extends Item {
 
   private Localizacao local_bug;
-
   private Utilizador dono;
+
+  public static RedBlackBST<Integer,TravelBug> travelBugs;
 
   public TravelBug(Integer id, Localizacao local_bug, Utilizador dono) {
     super(id);

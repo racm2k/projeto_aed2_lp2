@@ -2,17 +2,16 @@ package edu.ufp.inf.lp2;
 
 
 import edu.princeton.cs.algs4.RedBlackBST;
-import edu.princeton.cs.algs4.ST;
-import edu.princeton.cs.algs4.StdOut;
 
 
 public class Cache {
     private Integer id;
     private CacheType tipo;
-
     private CacheDifficulty dificuldade;
-
     private Localizacao local_cache;
+
+    public static RedBlackBST<Integer,Cache> caches;
+
     private RedBlackBST<Integer,Log> logs;
     private RedBlackBST<Integer,Item> items;
 
@@ -55,6 +54,8 @@ public class Cache {
         return local_cache;
     }
 
+    /************************  LOGS *************************/
+
     public void getLogs() {
         for (Integer lkey : logs.keys()) {
             System.out.println("Logs of Cache "+this.getId());
@@ -65,9 +66,8 @@ public class Cache {
     public void addLog(Log l){
         if (this.logs.contains(l.getUserID())){
             System.out.println("addLog() - Cache : User already logged in this cache!");
-            return;
-        }
-        this.logs.put(l.getUserID(), l);
+        }else if(Log.logs.contains(l.getUserID()))
+            this.logs.put(l.getUserID(), l);
     }
 
     public void removeLog(Log l){
@@ -77,6 +77,8 @@ public class Cache {
             System.out.println("Log não encontrado!");
         }
     }
+
+    /************************  ITEMS *************************/
 
     public void listItems() {
         for (Integer ikey : items.keys()) {
@@ -88,9 +90,8 @@ public class Cache {
     public void addItem(Item i){
         if (this.items.contains(i.getId())){
             System.out.println("addItem() - Cache : Item already in this cache!");
-            return;
-        }
-        this.items.put(i.getId(),i);
+        }else if(Item.items.contains(i.getId()))
+            this.items.put(i.getId(),i);
     }
 
     public void removeItem(Item i){

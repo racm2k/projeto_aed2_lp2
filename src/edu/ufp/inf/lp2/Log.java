@@ -1,12 +1,15 @@
 package edu.ufp.inf.lp2;
 
 import edu.princeton.cs.algs4.Date;
+import edu.princeton.cs.algs4.RedBlackBST;
 import jdk.jshell.execution.Util;
 
 public class Log {
     private Date data;
     private String nota;
     private Utilizador user;
+
+    public static RedBlackBST<Integer,Log> logs;
 
     public Log(Date data, String nota, Utilizador user) {
         this.data = data;

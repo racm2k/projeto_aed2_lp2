@@ -1,9 +1,15 @@
 package edu.ufp.inf.lp2;
 
+import edu.princeton.cs.algs4.ST;
+
+import java.util.HashMap;
+
 public class Localizacao {
     private double latitude;
     private double longitude;
     private String zona;
+
+    public static HashMap<Integer,Localizacao> localizacoes;
 
     public double getLatitude() {
         return latitude;
