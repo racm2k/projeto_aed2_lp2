@@ -1,0 +1,4 @@
+Item{
+    id: '2',
+    descricao: 'Caixa de madeira'
+}

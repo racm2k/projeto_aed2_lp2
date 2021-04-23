@@ -1,0 +1,16 @@
+BASIC User {
+    id: '15425',
+    nome: 'Alfredo'
+}
+PREMIUM User {
+    id: '32742',
+    nome: 'Zé'
+}
+BASIC User {
+    id: '33234',
+    nome: 'Joaquim'
+}
+ADMIN User {
+    id: '38237',
+    nome: 'Rúben Alexandre Carneiro Machado'
+}
