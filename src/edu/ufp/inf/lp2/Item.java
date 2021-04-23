@@ -11,9 +11,10 @@ public class Item {
 
   private Integer id;
 
-  private RedBlackBST<Integer,Cache> historicoCaches;
+  private RedBlackBST<Integer,Cache> historicoCaches = new RedBlackBST<>();
 
-  public static ST<Integer,Item> items;
+  public static ST<Integer,Item> items = new ST<>();
+  public static ST<Integer,Item> deleted_items = new ST<>();
 
 public Item(){
 
@@ -60,10 +61,22 @@ public Item(){
   return null;
   }
 
+  public void delete(){
+    if (items.contains(this.id)){
+      deleted_items.put(this.id,this);
+      items.delete(this.id);
+
+    }
+  }
+
   @Override
   public String toString() {
     return "Item{" +
             "id=" + id +
             '}';
+  }
+
+  public static void main(String[] args) {
+
   }
 }

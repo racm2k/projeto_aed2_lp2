@@ -10,10 +10,11 @@ public class Cache {
     private CacheDifficulty dificuldade;
     private Localizacao local_cache;
 
-    public static RedBlackBST<Integer,Cache> caches;
+    public static RedBlackBST<Integer,Cache> caches = new RedBlackBST<>();
+    public static RedBlackBST<Integer,Cache> deleted_caches = new RedBlackBST<>();
 
-    private RedBlackBST<Integer,Log> logs;
-    private RedBlackBST<Integer,Item> items;
+    private RedBlackBST<Integer,Log> logs = new RedBlackBST<>();
+    private RedBlackBST<Integer,Item> items = new RedBlackBST<>();
 
     public Cache(Integer id, CacheType tipo, CacheDifficulty dificuldade, Localizacao local_cache) {
         this.id = id;
@@ -107,6 +108,13 @@ public class Cache {
             System.out.println("editItem() - Cache : Item não encontrado.");
     }
 
+    public void delete(){
+        if (caches.contains(this.id)){
+            deleted_caches.put(this.id,this);
+            caches.delete(this.id);
+
+        }
+    }
 
     @Override
     public String toString() {

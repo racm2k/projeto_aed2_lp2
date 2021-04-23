@@ -7,7 +7,8 @@ public class TravelBug extends Item {
   private Localizacao local_bug;
   private Utilizador dono;
 
-  public static RedBlackBST<Integer,TravelBug> travelBugs;
+  public static RedBlackBST<Integer,TravelBug> travelBugs = new RedBlackBST<>();
+  public static RedBlackBST<Integer,TravelBug> deleted_travelBugs = new RedBlackBST<>();
 
   public TravelBug(Integer id, Localizacao local_bug, Utilizador dono) {
     super(id);
@@ -29,6 +30,14 @@ public class TravelBug extends Item {
 
   public void setDono(Utilizador dono) {
     this.dono = dono;
+  }
+
+  public void delete(){
+    if (travelBugs.contains(this.getId())){
+      deleted_travelBugs.put(this.getId(),this);
+      travelBugs.delete(this.getId());
+
+    }
   }
 
   @Override
