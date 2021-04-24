@@ -2,13 +2,7 @@ Cache{
     id: '5',
     tipo: 'BASIC',
     dificuldade: 'HARD',
-    location: 'Localizacao{
-    id: '1025',
-    latitude: '80.5527',
-    longitude: '0.6561',
-    zona: 'qq'
-}
-'
+    location: 'null'
 }
 Cache{
     id: '25',

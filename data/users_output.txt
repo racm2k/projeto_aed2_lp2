@@ -10,7 +10,3 @@ BASIC User {
     id: '33234',
     nome: 'Joaquim'
 }
-ADMIN User {
-    id: '38237',
-    nome: 'Rúben Alexandre Carneiro Machado'
-}

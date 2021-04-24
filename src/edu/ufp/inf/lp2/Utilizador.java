@@ -1,36 +1,42 @@
 package edu.ufp.inf.lp2;
+
 import edu.princeton.cs.algs4.RedBlackBST;
 import edu.princeton.cs.algs4.ST;
 import edu.princeton.cs.algs4.StdOut;
 
 public class Utilizador {
 
-    private UserType tipo;
+    private String tipo;
     private Integer id;
-    private RedBlackBST<Integer,Cache> hiddenCaches= new RedBlackBST<>();
-    private RedBlackBST<Integer,Cache> visitedCaches = new RedBlackBST<>();
-    private RedBlackBST<Integer,TravelBug> travelBugs = new RedBlackBST<>();
+    private String nome;
+    private RedBlackBST<Integer, Cache> hiddenCaches = new RedBlackBST<>();
+    private RedBlackBST<Integer, Cache> visitedCaches = new RedBlackBST<>();
+    private ST<Integer, TravelBug> travelBugs = new ST<>();
 
-    public static ST<Integer,Utilizador> utilizadores = new ST<>();
-    public static ST<Integer,Utilizador> deleted_utilizadores = new ST<>();
 
-    public Utilizador(UserType tipo, Integer id) {
+    public Utilizador(String tipo, Integer id, String nome) {
         this.tipo = tipo;
         this.id = id;
+        this.nome = nome;
     }
 
-    public Utilizador() {
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public Integer getId() {
         return id;
     }
 
-    public UserType getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(UserType tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
@@ -45,32 +51,30 @@ public class Utilizador {
             StdOut.println(hkey + " " + hiddenCaches.get(hkey));
     }
 
-    public void addHiddenCache(Cache c){
-        if (this.hiddenCaches.contains(c.getId())){
+    public void addHiddenCache(Cache c) {
+        if (this.hiddenCaches.contains(c.getId())) {
             System.out.println("addHiddenCache() - Utilizador : Cache already in ST!");
-        }else if(Cache.caches.contains(c.getId())){
-            this.hiddenCaches.put(c.getId(),c);
+        } else {
+            this.hiddenCaches.put(c.getId(), c);
             System.out.println("Hidden Cache added!");
-        }else
-            System.out.println("Cache does not exist in global ST of Caches!");
+        }
     }
 
-    public void removeHiddenCache(Integer id){
-        if (this.hiddenCaches.contains(id)){
+    public void removeHiddenCache(Integer id) {
+        if (this.hiddenCaches.contains(id)) {
             this.hiddenCaches.delete(id);
             System.out.println("Hidden Cache removida!");
-        }else
+        } else
             System.out.println("removeHiddenCache() - Utilizador : Cache does not exist in ST!");
     }
 
-    public void editHiddenCache(Cache c,Integer id, CacheType tipo, CacheDifficulty dificuldade, Localizacao localizacao ){
-        Cache c1 = new Cache(id,tipo,dificuldade,localizacao);
-        Cache.caches.put(c1.getId(),c1);
-        if (this.hiddenCaches.contains(c.getId())){
+    public void editHiddenCache(Cache c, Integer id, String tipo, String dificuldade, Localizacao localizacao) {
+        Cache c1 = new Cache(id, tipo, dificuldade, localizacao);
+        if (this.hiddenCaches.contains(c.getId())) {
             this.hiddenCaches.delete(c.getId());
-            this.hiddenCaches.put(c1.getId(),c1);
+            this.hiddenCaches.put(c1.getId(), c1);
             System.out.println("Hidden Cache editada com sucesso!");
-        }else
+        } else
             System.out.println("editHiddenCache() - Utilizador : Error editing Cache!");
     }
 
@@ -82,31 +86,29 @@ public class Utilizador {
     }
 
 
-    public void addVisitedCache(Cache c){
-        if (this.visitedCaches.contains(c.getId())){
+    public void addVisitedCache(Cache c) {
+        if (this.visitedCaches.contains(c.getId())) {
             System.out.println("addVisitedCache() - Utilizador : Cache already in ST!");
-        }else if(Cache.caches.contains(c.getId())){
-            this.visitedCaches.put(c.getId(),c);
+        } else {
+            this.visitedCaches.put(c.getId(), c);
             System.out.println("Visited Cache added!");
-        }else
-            System.out.println("Cache does not exist in global ST of Caches!");
+        }
     }
 
-    public void removeVisitedCache(Integer id){
-        if (this.visitedCaches.contains(id)){
+    public void removeVisitedCache(Integer id) {
+        if (this.visitedCaches.contains(id)) {
             this.visitedCaches.delete(id);
-        }else
+        } else
             System.out.println("removeVisitedCache() - Utilizador : Cache does not exist in ST!");
     }
 
-    public void editVisitedCache(Cache c,Integer id, CacheType tipo, CacheDifficulty dificuldade, Localizacao localizacao ){
-        Cache c1 = new Cache(id,tipo,dificuldade,localizacao);
-        Cache.caches.put(c1.getId(),c1);
-        if (this.visitedCaches.contains(c.getId())){
+    public void editVisitedCache(Cache c, Integer id, String tipo, String dificuldade, Localizacao localizacao) {
+        Cache c1 = new Cache(id, tipo, dificuldade, localizacao);
+        if (this.visitedCaches.contains(c.getId())) {
             this.visitedCaches.delete(c.getId());
-            this.visitedCaches.put(c1.getId(),c1);
+            this.visitedCaches.put(c1.getId(), c1);
             System.out.println("Visited Cache editada com sucesso!");
-        }else
+        } else
             System.out.println("editVisitedCache() - Utilizador : Error editing Cache!");
     }
 
@@ -117,42 +119,38 @@ public class Utilizador {
             StdOut.println(tbkey + " " + travelBugs.get(tbkey));
     }
 
-    public void addTravelBug(TravelBug tb){
-        if (this.travelBugs.contains(tb.getId())){
+    public ST<Integer,TravelBug> getTravelBugs(){
+        return this.travelBugs;
+    }
+
+    public void addTravelBug(TravelBug tb) {
+        if (this.travelBugs.contains(tb.getId())) {
             System.out.println("addTravelBug() - Utilizador : TravelBug already in ST!");
             return;
         }
-        this.travelBugs.put(tb.getId(),tb);
+        this.travelBugs.put(tb.getId(), tb);
     }
 
-    public void removeTravelBug(Cache c){
-        if (this.travelBugs.contains(c.getId())){
-            this.travelBugs.delete(c.getId());
-        }else
+    public void removeTravelBug(TravelBug tb) {
+        if (this.travelBugs.contains(tb.getId())) {
+            this.travelBugs.delete(tb.getId());
+        } else
             System.out.println("removeTravelBug() - Utilizador : TravelBug does not exist in ST!");
     }
 
-    public void editTravelBug(TravelBug tb, Localizacao local_bug, Utilizador user ){
-        if (this.travelBugs.contains(tb.getId())){
+    public void editTravelBug(TravelBug tb, Localizacao local_bug, Utilizador user) {
+        if (this.travelBugs.contains(tb.getId())) {
             tb.setId(id);
             tb.setLocal_bug(local_bug);
             tb.setDono(user);
-        }else
+        } else
             System.out.println("editTravelBug() - Utilizador : Error editing Travel Bug!");
     }
 
-    public void delete(){
-        if (utilizadores.contains(this.id)){
-            deleted_utilizadores.put(this.id,this);
-            utilizadores.remove(this.id);
-        }
-    }
 
     @Override
     public String toString() {
-        return "Utilizador{" +
-                "tipo=" + tipo +
-                ", id=" + id +
-                '}';
+        return tipo+" User {\n    id: '" + id + "',\n    nome: '" + nome + "'\n}\n";
     }
+
 }

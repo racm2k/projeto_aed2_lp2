@@ -1,5 +1,0 @@
-Log{
-    data: '11/5/2000',
-    nota: 'Primeira Nota',
-    user: 'Rúben Alexandre Carneiro Machado'
-}

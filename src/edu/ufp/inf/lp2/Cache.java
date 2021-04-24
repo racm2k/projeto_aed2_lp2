@@ -1,22 +1,19 @@
 package edu.ufp.inf.lp2;
 
-
 import edu.princeton.cs.algs4.RedBlackBST;
-
 
 public class Cache {
     private Integer id;
-    private CacheType tipo;
-    private CacheDifficulty dificuldade;
+    private String tipo;
+    private String dificuldade;
     private Localizacao local_cache;
 
-    public static RedBlackBST<Integer,Cache> caches = new RedBlackBST<>();
-    public static RedBlackBST<Integer,Cache> deleted_caches = new RedBlackBST<>();
 
-    private RedBlackBST<Integer,Log> logs = new RedBlackBST<>();
-    private RedBlackBST<Integer,Item> items = new RedBlackBST<>();
 
-    public Cache(Integer id, CacheType tipo, CacheDifficulty dificuldade, Localizacao local_cache) {
+    private RedBlackBST<Integer, Log> logs = new RedBlackBST<>();
+    private RedBlackBST<Integer, Item> items = new RedBlackBST<>();
+
+    public Cache(Integer id, String tipo, String dificuldade, Localizacao local_cache) {
         this.id = id;
         this.tipo = tipo;
         this.dificuldade = dificuldade;
@@ -31,19 +28,19 @@ public class Cache {
         this.id = id;
     }
 
-    public CacheType getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(CacheType tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
-    public CacheDifficulty getDificuldade() {
+    public String getDificuldade() {
         return dificuldade;
     }
 
-    public void setDificuldade(CacheDifficulty dificuldade) {
+    public void setDificuldade(String dificuldade) {
         this.dificuldade = dificuldade;
     }
 
@@ -51,30 +48,29 @@ public class Cache {
         this.local_cache = local_cache;
     }
 
-    public Localizacao getLocal_cache() {
-        return local_cache;
+    public Localizacao getLocal_cache(){
+        return this.local_cache;
     }
 
     /************************  LOGS *************************/
 
-    public void getLogs() {
-        for (Integer lkey : logs.keys()) {
-            System.out.println("Logs of Cache "+this.getId());
-            System.out.println(lkey + " " + logs.get(lkey));
+    public RedBlackBST<Integer, Log> getLogs() {
+        return logs;
+    }
+
+    public void addLog(Log l) {
+        if (this.logs.contains(l.getUser().getId())) {
+            System.out.println("addLog() - Cache : User already logged in this cache!");
+        } else {
+            this.logs.put(l.getUser().getId(), l);
         }
     }
 
-    public void addLog(Log l){
-        if (this.logs.contains(l.getUserID())){
-            System.out.println("addLog() - Cache : User already logged in this cache!");
-        }else if(Log.logs.contains(l.getUserID()))
-            this.logs.put(l.getUserID(), l);
-    }
-
-    public void removeLog(Log l){
-        if (this.logs.contains(l.getUserID())){
-            this.logs.delete(l.getUserID());
-        }else{
+    public void removeLog(Log l) {
+        if (this.logs.contains(l.getUser().getId())) {
+            logs.delete(l.getUser().getId());
+            this.logs.delete(l.getUser().getId());
+        } else {
             System.out.println("Log não encontrado!");
         }
     }
@@ -82,47 +78,45 @@ public class Cache {
     /************************  ITEMS *************************/
 
     public void listItems() {
+        System.out.println("Items of Cache " + this.getId());
         for (Integer ikey : items.keys()) {
-            System.out.println("Items of Cache " + this.getId());
             System.out.println(ikey + " " + items.get(ikey));
         }
     }
 
-    public void addItem(Item i){
-        if (this.items.contains(i.getId())){
+    public void addItem(Item i) {
+        if (this.items.contains(i.getId())) {
             System.out.println("addItem() - Cache : Item already in this cache!");
-        }else if(Item.items.contains(i.getId()))
-            this.items.put(i.getId(),i);
+            return;
+        }
+        this.items.put(i.getId(), i);
     }
 
-    public void removeItem(Item i){
-        if (this.items.contains(i.getId())){
+    public void removeItem(Item i) {
+        if (this.items.contains(i.getId())) {
+            items.delete(i.getId());
             this.items.delete(i.getId());
         }
     }
 
-    public void editItem(Item i, Integer id){
-        if (this.items.contains(i.getId())){
-            this.items.get(i.getId()).setId(id);
-        }else
-            System.out.println("editItem() - Cache : Item não encontrado.");
+    public RedBlackBST<Integer,Item> getItems(){
+        return items;
     }
 
-    public void delete(){
-        if (caches.contains(this.id)){
-            deleted_caches.put(this.id,this);
-            caches.delete(this.id);
-
-        }
+    public void editItem(Item i, Integer id) {
+        if (this.items.contains(i.getId())) {
+            this.items.get(i.getId()).setId(id);
+            items.get(i.getId()).setId(id);
+        } else
+            System.out.println("editItem() - Cache : Item não encontrado.");
     }
 
     @Override
     public String toString() {
-        return "Cache{" +
-                "id=" + id +
-                ", tipo=" + tipo +
-                ", dificuldade=" + dificuldade +
-                ", local_cache=" + local_cache +
-                '}';
+        return "Cache{\n    id: '" + id +
+                "',\n    tipo: '" + tipo +
+                "',\n    dificuldade: '" + dificuldade +
+                "',\n    location: '" + local_cache +
+                "'\n}\n";
     }
 }

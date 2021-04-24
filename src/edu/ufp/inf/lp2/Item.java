@@ -1,27 +1,35 @@
 package edu.ufp.inf.lp2;
 
 import edu.princeton.cs.algs4.RedBlackBST;
-import edu.princeton.cs.algs4.ST;
 import edu.princeton.cs.algs4.StdOut;
 
-import java.util.HashMap;
 
 
 public class Item {
 
   private Integer id;
+  private String descricao;
 
   private RedBlackBST<Integer,Cache> historicoCaches = new RedBlackBST<>();
 
-  public static ST<Integer,Item> items = new ST<>();
-  public static ST<Integer,Item> deleted_items = new ST<>();
 
-public Item(){
-
-}
-  public Item(Integer id) {
+  public Item(Integer id, String descricao) {
     this.id = id;
+    this.descricao = descricao;
   }
+
+  public Item(Integer id) {
+  }
+
+  public String getDescricao() {
+    return descricao;
+  }
+
+  public void setDescricao(String descricao) {
+    this.descricao = descricao;
+  }
+
+
 
   public Integer getId() {
     return this.id;
@@ -37,12 +45,10 @@ public Item(){
   }
 
   public void addHistoricoCaches(Cache c){
-      RedBlackBST<Integer,Cache> caches = Cache.caches;
       if (this.historicoCaches.contains(c.getId())){
         System.out.println("Cache já existente");
-      }else if (caches.contains(c.getId())){
+      }else
         historicoCaches.put(c.getId(),c);
-      }
   }
 
   public void removeFromHistoricoCaches(Cache c){
@@ -61,22 +67,12 @@ public Item(){
   return null;
   }
 
-  public void delete(){
-    if (items.contains(this.id)){
-      deleted_items.put(this.id,this);
-      items.delete(this.id);
-
-    }
-  }
 
   @Override
   public String toString() {
-    return "Item{" +
-            "id=" + id +
-            '}';
+    return "Item{\n    id: '" + id +
+            "',\n    descricao: '" + descricao +
+            "'\n}\n";
   }
 
-  public static void main(String[] args) {
-
-  }
 }
