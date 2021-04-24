@@ -1,4 +1,10 @@
 Localizacao{
+    id: '1025',
+    latitude: '80.5527',
+    longitude: '0.6561',
+    zona: 'qq'
+}
+Localizacao{
     id: '1283',
     latitude: '30.6082',
     longitude: '-121.801',

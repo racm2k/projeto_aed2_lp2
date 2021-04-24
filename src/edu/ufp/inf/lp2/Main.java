@@ -17,17 +17,18 @@ public class Main {
 
 
         Utilizador u1 = fu.getUser(38237);
-        Localizacao l1= fu.getLocal(1025);
+        Cache c1 = fu.getCache(25);
+        Item i1= fu.getItem(2);
         System.out.println("////////////////////////////////////////////");
         u1.addTravelBug(fu.getTravelBug(4));
         u1.listTravelBugs();
-
-        fu.deleteLocal(l1);
-        fu.deleteUser(u1);
+        i1.addHistoricoCaches(c1);
+//        fu.deleteUser(u1);
+        fu.deleteCache(c1);
+        System.out.println(fu.getTravelBug(4));
 
         fu.listDeletedUsers();
         fu.listDeletedTravelBugs();
-        fu.listDeletedLocals();
 
         fu.saveLocals("C:\\Users\\ruben\\IdeaProjects\\projeto_aed_lp\\data\\locations_output.txt");
         fu.saveUsers("C:\\Users\\ruben\\IdeaProjects\\projeto_aed_lp\\data\\users_output.txt");

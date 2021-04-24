@@ -1,0 +1,6 @@
+TravelBug{
+    id: '4',
+    descrição: 'Parafuso de ferro',
+    cache='null',
+    dono= 'Rúben Alexandre Carneiro Machado'
+}

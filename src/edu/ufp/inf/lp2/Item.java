@@ -54,6 +54,7 @@ public class Item {
   public void removeFromHistoricoCaches(Cache c){
     if (this.historicoCaches.contains(c.getId())){
       this.historicoCaches.delete(c.getId());
+      System.out.println("removeFromHistoricoCaches() - Cache encontrada e removida!");
       return;
     }
     System.out.println("removeFromHistoricoCaches() - Cache não existente.");

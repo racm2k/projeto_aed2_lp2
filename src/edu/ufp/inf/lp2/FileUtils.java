@@ -128,7 +128,7 @@ public class FileUtils {
         }
     }
 
-    public void listDeletedUsers(){
+    public void listDeletedUsers() {
         for (Integer key : deleted_utilizadores.keys()) {
             System.out.println(deleted_utilizadores.get(key).toString());
         }
@@ -193,9 +193,14 @@ public class FileUtils {
     public void deleteCache(Cache c) {
         if (caches.contains(c.getId())) {
             for (Integer key : items.keys()) {
-                Item i = items.get(key);
-                if (c == i.findCacheFromHistorico(c)) {
-                    i.removeFromHistoricoCaches(c);
+                if (c == items.get(key).findCacheFromHistorico(c)) {
+                    items.get(key).removeFromHistoricoCaches(c);
+                }
+            }
+
+            for (Integer key : travelBugs.keys()) {
+                if (travelBugs.get(key).getBugCache() == c) {
+                    travelBugs.get(key).setBugCache(null);
                 }
             }
 
@@ -213,7 +218,7 @@ public class FileUtils {
         }
     }
 
-    public void listDeletedCaches(){
+    public void listDeletedCaches() {
         for (Integer key : deleted_caches.keys()) {
             System.out.println(deleted_caches.get(key).toString());
         }
@@ -290,7 +295,7 @@ public class FileUtils {
         }
     }
 
-    public void listDeletedLogs(){
+    public void listDeletedLogs() {
         for (Integer key : deleted_logs.keys()) {
             System.out.println(deleted_logs.get(key).toString());
         }
@@ -365,7 +370,7 @@ public class FileUtils {
         }
     }
 
-    public void listDeletedItems(){
+    public void listDeletedItems() {
         for (Integer key : deleted_items.keys()) {
             System.out.println(deleted_items.get(key).toString());
         }
@@ -436,18 +441,13 @@ public class FileUtils {
                     caches.get(ckey).setLocal_cache(null);
                 }
             }
-            for (Integer tkey : travelBugs.keys()) {
-                if (travelBugs.get(tkey).getLocal_bug() == loc) {
-                    travelBugs.get(tkey).setLocal_bug(null);
-                }
-            }
 
             deleted_localizacoes.put(loc.getId(), loc);
             localizacoes.remove(loc.getId());
         }
     }
 
-    public void listDeletedLocals(){
+    public void listDeletedLocals() {
         for (Integer key : deleted_localizacoes.keySet()) {
             System.out.println(deleted_localizacoes.get(key).toString());
         }
@@ -474,10 +474,10 @@ public class FileUtils {
             while (scanner.hasNextLine()) {
                 line = scanner.nextLine();
                 String[] tokens = line.split(";");
-                Localizacao l = localizacoes.get(Integer.parseInt(tokens[2]));
+                Cache c = caches.get(Integer.parseInt(tokens[2]));
                 Utilizador ut = utilizadores.get(Integer.parseInt(tokens[3]));
-                TravelBug tb = new TravelBug(Integer.parseInt(tokens[0]), tokens[1], l, ut);
-                if (!travelBugs.contains(tb.getId()) && localizacoes.containsKey(l.getId()) && utilizadores.contains(ut.getId())) {
+                TravelBug tb = new TravelBug(Integer.parseInt(tokens[0]), tokens[1], c, ut);
+                if (!travelBugs.contains(tb.getId()) && caches.contains(c.getId()) && utilizadores.contains(ut.getId())) {
                     travelBugs.put(tb.getId(), tb);
                 }
             }
@@ -524,7 +524,7 @@ public class FileUtils {
         }
     }
 
-    public void listDeletedTravelBugs(){
+    public void listDeletedTravelBugs() {
         for (Integer key : deleted_travelBugs.keys()) {
             System.out.println(deleted_travelBugs.get(key).toString());
         }

@@ -138,10 +138,10 @@ public class Utilizador {
             System.out.println("removeTravelBug() - Utilizador : TravelBug does not exist in ST!");
     }
 
-    public void editTravelBug(TravelBug tb, Localizacao local_bug, Utilizador user) {
+    public void editTravelBug(TravelBug tb, Cache cache, Utilizador user) {
         if (this.travelBugs.contains(tb.getId())) {
             tb.setId(id);
-            tb.setLocal_bug(local_bug);
+            tb.setBugCache(cache);
             tb.setDono(user);
         } else
             System.out.println("editTravelBug() - Utilizador : Error editing Travel Bug!");

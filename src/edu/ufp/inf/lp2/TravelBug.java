@@ -1,13 +1,13 @@
 package edu.ufp.inf.lp2;
 
 public class TravelBug extends Item {
-  private Localizacao local_bug;
+  private Cache cache;
   private Utilizador dono;
 
 
-  public TravelBug(Integer id, String descricao, Localizacao local_bug, Utilizador dono) {
+  public TravelBug(Integer id, String descricao, Cache cache, Utilizador dono) {
     super(id, descricao);
-    this.local_bug = local_bug;
+    this.cache = cache;
     this.dono = dono;
   }
 
@@ -15,12 +15,12 @@ public class TravelBug extends Item {
 
 
 
-  public Localizacao getLocal_bug() {
-    return local_bug;
+  public Cache getBugCache() {
+    return this.cache;
   }
 
-  public void setLocal_bug(Localizacao local_bug) {
-    this.local_bug = local_bug;
+  public void setBugCache(Cache cache) {
+    this.cache = cache;
   }
 
   public Utilizador getDono() {
@@ -34,6 +34,6 @@ public class TravelBug extends Item {
 
   @Override
   public String toString() {
-    return "TravelBug{\n    id: '"+this.getId()+"',\n    descrição: '"+this.getDescricao()+"',\n    local_bug='" + local_bug + "',\n    dono= '" + dono.getNome() +"'\n}\n";
+    return "TravelBug{\n    id: '"+this.getId()+"',\n    descrição: '"+this.getDescricao()+"',\n    cache='" + cache + "',\n    dono= '" + dono.getNome() +"'\n}\n";
   }
 }
