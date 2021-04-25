@@ -110,13 +110,13 @@ Localizacao{
     id: '6686',
     latitude: '-3.8939',
     longitude: '-70.6349',
-    zona: 'gN'
+    zona: 'Vk'
 }
 Localizacao{
     id: '9502',
     latitude: '59.8806',
     longitude: '116.6539',
-    zona: 'gH'
+    zona: 'Vk'
 }
 Localizacao{
     id: '4766',
@@ -140,7 +140,7 @@ Localizacao{
     id: '9767',
     latitude: '39.7974',
     longitude: '178.0791',
-    zona: 'vr'
+    zona: 'Vk'
 }
 Localizacao{
     id: '8877',
@@ -218,7 +218,7 @@ Localizacao{
     id: '3925',
     latitude: '90.9462',
     longitude: '-168.8943',
-    zona: 'dW'
+    zona: 'Vk'
 }
 Localizacao{
     id: '1114',
@@ -290,7 +290,7 @@ Localizacao{
     id: '2300',
     latitude: '4.8892',
     longitude: '-13.1752',
-    zona: '" j"'
+    zona: 'Vk'
 }
 Localizacao{
     id: '7294',

@@ -3,10 +3,70 @@ Cache{
     tipo: 'BASIC',
     dificuldade: 'HARD',
     location: 'Localizacao{
-    id: '1025',
-    latitude: '80.5527',
-    longitude: '0.6561',
-    zona: 'qq'
+    id: '6686',
+    latitude: '-3.8939',
+    longitude: '-70.6349',
+    zona: 'Vk'
+}
+'
+}
+Cache{
+    id: '10',
+    tipo: 'BASIC',
+    dificuldade: 'HARD',
+    location: 'Localizacao{
+    id: '2300',
+    latitude: '4.8892',
+    longitude: '-13.1752',
+    zona: 'Vk'
+}
+'
+}
+Cache{
+    id: '20',
+    tipo: 'PREMIUM',
+    dificuldade: 'MEDIUM',
+    location: 'Localizacao{
+    id: '9767',
+    latitude: '39.7974',
+    longitude: '178.0791',
+    zona: 'Vk'
+}
+'
+}
+Cache{
+    id: '25',
+    tipo: 'PREMIUM',
+    dificuldade: 'EASY',
+    location: 'Localizacao{
+    id: '6684',
+    latitude: '-53.5149',
+    longitude: '-19.8754',
+    zona: 'Vk'
+}
+'
+}
+Cache{
+    id: '50',
+    tipo: 'PREMIUM',
+    dificuldade: 'HARD',
+    location: 'Localizacao{
+    id: '8764',
+    latitude: '-5.2274',
+    longitude: '-39.4617',
+    zona: 'GC'
+}
+'
+}
+Cache{
+    id: '80',
+    tipo: 'BASIC',
+    dificuldade: 'HARD',
+    location: 'Localizacao{
+    id: '7182',
+    latitude: '88.486',
+    longitude: '90.9905',
+    zona: 'Lb'
 }
 '
 }

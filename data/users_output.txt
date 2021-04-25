@@ -1,6 +1,14 @@
 BASIC User {
-    id: '15425',
+    id: '16425',
     nome: 'Alfredo'
+}
+BASIC User {
+    id: '25674',
+    nome: 'Mario'
+}
+BASIC User {
+    id: '30060',
+    nome: 'Andre'
 }
 PREMIUM User {
     id: '32742',

@@ -530,4 +530,58 @@ public class FileUtils {
         }
     }
 
+    /******************************************************************************************************/
+
+    public void list_users_visited_given_cache(Cache c) {
+        for (Integer key : utilizadores.keys()) {
+            if (utilizadores.get(key).getVisitedCaches().get(c.getId()) != null)
+                System.out.println(utilizadores.get(key));
+        }
+    }
+
+    public void list_premiumCaches_atleast_1Item() {
+        for (Integer key : caches.keys()) {
+            if (caches.get(key).getTipo().equals("PREMIUM") && caches.get(key).getItems().size() != 0) {
+                System.out.println(caches.get(key));
+            }
+        }
+    }
+
+    public void list_top5_users(Date begin, Date end) {
+        RedBlackBST<Integer, Utilizador> aux = new RedBlackBST<>();
+        int i = 5;
+        while (i > 0) {
+            for (Integer key : utilizadores.keys()) {
+                Integer count = 0;
+                RedBlackBST<Integer, Cache> vCaches = utilizadores.get(key).getVisitedCaches();
+                for (Integer ckey : vCaches.keys()) {
+                    RedBlackBST<Integer, Log> cLogs = vCaches.get(ckey).getLogs();
+                    for (Integer lkey : cLogs.keys()) {
+                        if (cLogs.get(lkey).getData().isAfter(begin) && cLogs.get(lkey).getData().isBefore(end) && cLogs.get(lkey).getUser() == utilizadores.get(key)) {
+                            count++;
+                        }
+                    }
+                }
+                aux.put(count, utilizadores.get(key));
+                i--;
+            }
+        }
+        System.out.println("TOP5 USERS:");
+        for (Integer key : aux.keys()) {
+            System.out.println(key + " : " + aux.get(key).getNome());
+        }
+
+    }
+
+    public void listMost_traveled_Bugs() {
+        RedBlackBST<Integer, TravelBug> tbs = new RedBlackBST<>();
+        for (Integer key : travelBugs.keys()) {
+            tbs.put(travelBugs.get(key).getHistoricoCaches().size(), travelBugs.get(key));
+        }
+
+        for (Integer key : tbs.keys()) {
+            System.out.println(key + " : " + tbs.get(key).getDescricao());
+        }
+    }
+
 }

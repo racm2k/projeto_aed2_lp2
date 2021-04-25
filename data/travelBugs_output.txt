@@ -1,6 +1,90 @@
 TravelBug{
     id: '4',
     descrição: 'Parafuso de ferro',
-    cache='null',
+    cache='Cache{
+    id: '25',
+    tipo: 'PREMIUM',
+    dificuldade: 'EASY',
+    location: 'Localizacao{
+    id: '6684',
+    latitude: '-53.5149',
+    longitude: '-19.8754',
+    zona: 'Vk'
+}
+'
+}
+',
+    dono= 'Rúben Alexandre Carneiro Machado'
+}
+TravelBug{
+    id: '7',
+    descrição: 'Chapas',
+    cache='Cache{
+    id: '25',
+    tipo: 'PREMIUM',
+    dificuldade: 'EASY',
+    location: 'Localizacao{
+    id: '6684',
+    latitude: '-53.5149',
+    longitude: '-19.8754',
+    zona: 'Vk'
+}
+'
+}
+',
+    dono= 'Rúben Alexandre Carneiro Machado'
+}
+TravelBug{
+    id: '10',
+    descrição: 'Chave ',
+    cache='Cache{
+    id: '25',
+    tipo: 'PREMIUM',
+    dificuldade: 'EASY',
+    location: 'Localizacao{
+    id: '6684',
+    latitude: '-53.5149',
+    longitude: '-19.8754',
+    zona: 'Vk'
+}
+'
+}
+',
+    dono= 'Rúben Alexandre Carneiro Machado'
+}
+TravelBug{
+    id: '15',
+    descrição: 'Parafuso de madeira',
+    cache='Cache{
+    id: '25',
+    tipo: 'PREMIUM',
+    dificuldade: 'EASY',
+    location: 'Localizacao{
+    id: '6684',
+    latitude: '-53.5149',
+    longitude: '-19.8754',
+    zona: 'Vk'
+}
+'
+}
+',
+    dono= 'Rúben Alexandre Carneiro Machado'
+}
+TravelBug{
+    id: '34',
+    descrição: 'Caixa de fosforos',
+    cache='Cache{
+    id: '25',
+    tipo: 'PREMIUM',
+    dificuldade: 'EASY',
+    location: 'Localizacao{
+    id: '6684',
+    latitude: '-53.5149',
+    longitude: '-19.8754',
+    zona: 'Vk'
+}
+'
+}
+',
     dono= 'Rúben Alexandre Carneiro Machado'
 }

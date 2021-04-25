@@ -39,9 +39,8 @@ public class Item {
     this.id = id;
   }
 
-  public void getHistoricoCaches() {
-    for (Integer ckey : this.historicoCaches.keys())
-      StdOut.println(ckey + " " + this.historicoCaches.get(ckey));
+  public RedBlackBST<Integer,Cache> getHistoricoCaches() {
+    return this.historicoCaches;
   }
 
   public void addHistoricoCaches(Cache c){

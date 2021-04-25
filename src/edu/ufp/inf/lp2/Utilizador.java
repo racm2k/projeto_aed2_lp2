@@ -20,6 +20,10 @@ public class Utilizador {
         this.nome = nome;
     }
 
+    public RedBlackBST<Integer, Cache> getVisitedCaches() {
+        return visitedCaches;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -46,9 +50,19 @@ public class Utilizador {
 
     /************************  HIDDEN CACHES *************************/
 
-    public void listHiddenCaches() {
-        for (Integer hkey : hiddenCaches.keys())
-            StdOut.println(hkey + " " + hiddenCaches.get(hkey));
+    public void listHiddenCaches(boolean byRegion, String region) {
+        if (byRegion) {
+            System.out.println(this.nome + "'s Hidden Caches na regiao " + region + " :");
+            for (Integer vkey : hiddenCaches.keys()) {
+                if (hiddenCaches.get(vkey).getLocal_cache().getZona().equals(region)) {
+                    System.out.println(hiddenCaches.get(vkey));
+                }
+            }
+        } else {
+            System.out.println("All " + this.nome + "'s Hidden Caches:");
+            for (Integer vkey : hiddenCaches.keys())
+                System.out.println(vkey + " " + hiddenCaches.get(vkey));
+        }
     }
 
     public void addHiddenCache(Cache c) {
@@ -80,9 +94,19 @@ public class Utilizador {
 
     /************************  VISITED CACHES *************************/
 
-    public void listVisitedCaches() {
-        for (Integer vkey : visitedCaches.keys())
-            StdOut.println(vkey + " " + visitedCaches.get(vkey));
+    public void listVisitedCaches(boolean byRegion, String region) {
+        if (byRegion) {
+            System.out.println(this.nome + "'s Caches na regiao " + region + " :");
+            for (Integer vkey : visitedCaches.keys()) {
+                if (visitedCaches.get(vkey).getLocal_cache().getZona().equals(region)) {
+                    System.out.println(visitedCaches.get(vkey));
+                }
+            }
+        } else {
+            System.out.println("All " + this.nome + "'s Caches:");
+            for (Integer vkey : visitedCaches.keys())
+                System.out.println(vkey + " " + visitedCaches.get(vkey));
+        }
     }
 
 
@@ -91,13 +115,15 @@ public class Utilizador {
             System.out.println("addVisitedCache() - Utilizador : Cache already in ST!");
         } else {
             this.visitedCaches.put(c.getId(), c);
+            this.hiddenCaches.delete(c.getId());
             System.out.println("Visited Cache added!");
         }
     }
 
-    public void removeVisitedCache(Integer id) {
-        if (this.visitedCaches.contains(id)) {
-            this.visitedCaches.delete(id);
+    public void removeVisitedCache(Cache c) {
+        if (this.visitedCaches.contains(c.getId())) {
+            this.visitedCaches.delete(c.getId());
+            this.hiddenCaches.put(c.getId(),c);
         } else
             System.out.println("removeVisitedCache() - Utilizador : Cache does not exist in ST!");
     }
@@ -119,7 +145,7 @@ public class Utilizador {
             StdOut.println(tbkey + " " + travelBugs.get(tbkey));
     }
 
-    public ST<Integer,TravelBug> getTravelBugs(){
+    public ST<Integer, TravelBug> getTravelBugs() {
         return this.travelBugs;
     }
 
@@ -150,7 +176,7 @@ public class Utilizador {
 
     @Override
     public String toString() {
-        return tipo+" User {\n    id: '" + id + "',\n    nome: '" + nome + "'\n}\n";
+        return tipo + " User {\n    id: '" + id + "',\n    nome: '" + nome + "'\n}\n";
     }
 
 }
