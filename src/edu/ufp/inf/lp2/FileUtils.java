@@ -16,22 +16,22 @@ public class FileUtils {
 
 
     private ST<Integer, Utilizador> utilizadores;
-    public static ST<Integer, Utilizador> deleted_utilizadores = new ST<>();
+    public static ST<Integer, Utilizador> deleted_utilizadores;
 
     private ST<Integer, TravelBug> travelBugs;
-    public static ST<Integer, TravelBug> deleted_travelBugs = new ST<>();
+    public static ST<Integer, TravelBug> deleted_travelBugs;
 
     private RedBlackBST<Integer, Cache> caches;
-    public static RedBlackBST<Integer, Cache> deleted_caches = new RedBlackBST<>();
+    public static RedBlackBST<Integer, Cache> deleted_caches;
 
     private HashMap<Integer, Localizacao> localizacoes;
-    public static HashMap<Integer, Localizacao> deleted_localizacoes = new HashMap<>();
+    public static HashMap<Integer, Localizacao> deleted_localizacoes;
 
     private RedBlackBST<Integer, Log> logs;
-    public static RedBlackBST<Integer, Log> deleted_logs = new RedBlackBST<>();
+    public static RedBlackBST<Integer, Log> deleted_logs;
 
     private ST<Integer, Item> items;
-    public static ST<Integer, Item> deleted_items = new ST<>();
+    public static ST<Integer, Item> deleted_items;
 
 
     public FileUtils() {
@@ -245,11 +245,11 @@ public class FileUtils {
             while (scanner.hasNextLine()) {
                 line = scanner.nextLine();
                 String[] tokens = line.split(";");
-                Date sDate = new Date(tokens[0]);
-                Utilizador utilizador = utilizadores.get(Integer.parseInt(tokens[2]));
-                Log lg = new Log(sDate, tokens[1], utilizador);
-                if (!logs.contains(lg.getUser().getId())) {
-                    logs.put(lg.getUser().getId(), lg);
+                Date sDate = new Date(tokens[1]);
+                Utilizador utilizador = utilizadores.get(Integer.parseInt(tokens[3]));
+                Log lg = new Log(Integer.parseInt(tokens[0]),sDate, tokens[2], utilizador);
+                if (!logs.contains(lg.getId())) {
+                    logs.put(lg.getId(), lg);
                 }
             }
         }
@@ -285,13 +285,13 @@ public class FileUtils {
     public void deleteLog(Log log) {
         if (logs.contains(log.getUser().getId())) {
             for (Integer ckey : caches.keys()) {
-                if (caches.get(ckey).getLogs().contains(log.getUser().getId())) {
-                    caches.get(ckey).getLogs().delete(log.getUser().getId());
+                if (caches.get(ckey).getLogs().contains(log.getId())) {
+                    caches.get(ckey).getLogs().delete(log.getId());
                 }
             }
 
-            deleted_logs.put(log.getUser().getId(), log);
-            logs.delete(log.getUser().getId());
+            deleted_logs.put(log.getId(), log);
+            logs.delete(log.getId());
         }
     }
 

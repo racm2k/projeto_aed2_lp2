@@ -62,25 +62,25 @@ public class Main {
 //        c1.addLog(l3);
 //        c5.addLog(l1);
 
-        tb1.addHistoricoCaches(c1);
-        tb1.addHistoricoCaches(c2);
-        tb1.addHistoricoCaches(c3);
-        tb1.addHistoricoCaches(c4);
-        tb1.addHistoricoCaches(c5);
-        tb1.addHistoricoCaches(c6);
-
-        tb2.addHistoricoCaches(c1);
-        tb2.addHistoricoCaches(c3);
-        tb2.addHistoricoCaches(c5);
-
-        tb3.addHistoricoCaches(c2);
-        tb3.addHistoricoCaches(c4);
-        tb3.addHistoricoCaches(c6);
-
-        tb4.addHistoricoCaches(c5);
-
-        tb5.addHistoricoCaches(c6);
-        tb5.addHistoricoCaches(c1);
+//        tb1.addHistoricoCaches(c1);
+//        tb1.addHistoricoCaches(c2);
+//        tb1.addHistoricoCaches(c3);
+//        tb1.addHistoricoCaches(c4);
+//        tb1.addHistoricoCaches(c5);
+//        tb1.addHistoricoCaches(c6);
+//
+//        tb2.addHistoricoCaches(c1);
+//        tb2.addHistoricoCaches(c3);
+//        tb2.addHistoricoCaches(c5);
+//
+//        tb3.addHistoricoCaches(c2);
+//        tb3.addHistoricoCaches(c4);
+//        tb3.addHistoricoCaches(c6);
+//
+//        tb4.addHistoricoCaches(c5);
+//
+//        tb5.addHistoricoCaches(c6);
+//        tb5.addHistoricoCaches(c1);
 
 
 //        u1.addVisitedCache(c1);
@@ -104,7 +104,7 @@ public class Main {
 //        Date end= new Date(1,1,2005);
 //        Date end= new Date(1,1,1999);
 //        fu.list_top5_users(begin,end);
-        fu.listMost_traveled_Bugs();
+//        fu.listMost_traveled_Bugs();
 
 //        fu.listDeletedUsers();
 //        fu.listDeletedTravelBugs();

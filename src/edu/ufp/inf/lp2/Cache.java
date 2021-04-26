@@ -59,17 +59,16 @@ public class Cache {
     }
 
     public void addLog(Log l) {
-        if (this.logs.contains(l.getUser().getId())) {
+        if (this.logs.contains(l.getId())) {
             System.out.println("addLog() - Cache : User already logged in this cache!");
         } else {
-            this.logs.put(l.getUser().getId(), l);
+            this.logs.put(l.getId(), l);
         }
     }
 
     public void removeLog(Log l) {
-        if (this.logs.contains(l.getUser().getId())) {
-            logs.delete(l.getUser().getId());
-            this.logs.delete(l.getUser().getId());
+        if (this.logs.contains(l.getId())) {
+            this.logs.delete(l.getId());
         } else {
             System.out.println("Log não encontrado!");
         }
