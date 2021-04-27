@@ -3,10 +3,10 @@ Cache{
     tipo: 'BASIC',
     dificuldade: 'HARD',
     location: 'Localizacao{
-    id: '6686',
-    latitude: '-3.8939',
-    longitude: '-70.6349',
-    zona: 'Vk'
+    id: '79766',
+    latitude: '-63.4382',
+    longitude: '25.4595',
+    zona: 'Vale'
 }
 '
 }
@@ -15,10 +15,10 @@ Cache{
     tipo: 'BASIC',
     dificuldade: 'HARD',
     location: 'Localizacao{
-    id: '2300',
-    latitude: '4.8892',
-    longitude: '-13.1752',
-    zona: 'Vk'
+    id: '12000',
+    latitude: '-4.1441',
+    longitude: '-160.5752',
+    zona: 'Rochoso'
 }
 '
 }
@@ -27,10 +27,10 @@ Cache{
     tipo: 'PREMIUM',
     dificuldade: 'MEDIUM',
     location: 'Localizacao{
-    id: '9767',
-    latitude: '39.7974',
-    longitude: '178.0791',
-    zona: 'Vk'
+    id: '96723',
+    latitude: '48.6601',
+    longitude: '-3.0702',
+    zona: 'Vale'
 }
 '
 }
@@ -39,10 +39,10 @@ Cache{
     tipo: 'PREMIUM',
     dificuldade: 'EASY',
     location: 'Localizacao{
-    id: '6684',
-    latitude: '-53.5149',
-    longitude: '-19.8754',
-    zona: 'Vk'
+    id: '88123',
+    latitude: '-46.6497',
+    longitude: '178.0413',
+    zona: 'Plano'
 }
 '
 }
@@ -51,10 +51,10 @@ Cache{
     tipo: 'PREMIUM',
     dificuldade: 'HARD',
     location: 'Localizacao{
-    id: '8764',
-    latitude: '-5.2274',
-    longitude: '-39.4617',
-    zona: 'GC'
+    id: '19824',
+    latitude: '-1.164',
+    longitude: '117.6236',
+    zona: 'Vale'
 }
 '
 }
@@ -63,10 +63,10 @@ Cache{
     tipo: 'BASIC',
     dificuldade: 'HARD',
     location: 'Localizacao{
-    id: '7182',
-    latitude: '88.486',
-    longitude: '90.9905',
-    zona: 'Lb'
+    id: '19121',
+    latitude: '-7.6924',
+    longitude: '-158.1908',
+    zona: 'Vale'
 }
 '
 }

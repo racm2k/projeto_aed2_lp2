@@ -6,15 +6,15 @@ TravelBug{
     tipo: 'PREMIUM',
     dificuldade: 'EASY',
     location: 'Localizacao{
-    id: '6684',
-    latitude: '-53.5149',
-    longitude: '-19.8754',
-    zona: 'Vk'
+    id: '88123',
+    latitude: '-46.6497',
+    longitude: '178.0413',
+    zona: 'Plano'
 }
 '
 }
 ',
-    dono= 'Rúben Alexandre Carneiro Machado'
+    dono= 'Liza Sanda'
 }
 TravelBug{
     id: '7',
@@ -24,15 +24,15 @@ TravelBug{
     tipo: 'PREMIUM',
     dificuldade: 'EASY',
     location: 'Localizacao{
-    id: '6684',
-    latitude: '-53.5149',
-    longitude: '-19.8754',
-    zona: 'Vk'
+    id: '88123',
+    latitude: '-46.6497',
+    longitude: '178.0413',
+    zona: 'Plano'
 }
 '
 }
 ',
-    dono= 'Rúben Alexandre Carneiro Machado'
+    dono= 'Diniz Hossi'
 }
 TravelBug{
     id: '10',
@@ -42,15 +42,15 @@ TravelBug{
     tipo: 'PREMIUM',
     dificuldade: 'EASY',
     location: 'Localizacao{
-    id: '6684',
-    latitude: '-53.5149',
-    longitude: '-19.8754',
-    zona: 'Vk'
+    id: '88123',
+    latitude: '-46.6497',
+    longitude: '178.0413',
+    zona: 'Plano'
 }
 '
 }
 ',
-    dono= 'Rúben Alexandre Carneiro Machado'
+    dono= 'Guillermo Nilsson'
 }
 TravelBug{
     id: '15',
@@ -60,15 +60,15 @@ TravelBug{
     tipo: 'PREMIUM',
     dificuldade: 'EASY',
     location: 'Localizacao{
-    id: '6684',
-    latitude: '-53.5149',
-    longitude: '-19.8754',
-    zona: 'Vk'
+    id: '88123',
+    latitude: '-46.6497',
+    longitude: '178.0413',
+    zona: 'Plano'
 }
 '
 }
 ',
-    dono= 'Rúben Alexandre Carneiro Machado'
+    dono= 'Taísa Eleanora'
 }
 TravelBug{
     id: '34',
@@ -78,13 +78,13 @@ TravelBug{
     tipo: 'PREMIUM',
     dificuldade: 'EASY',
     location: 'Localizacao{
-    id: '6684',
-    latitude: '-53.5149',
-    longitude: '-19.8754',
-    zona: 'Vk'
+    id: '88123',
+    latitude: '-46.6497',
+    longitude: '178.0413',
+    zona: 'Plano'
 }
 '
 }
 ',
-    dono= 'Rúben Alexandre Carneiro Machado'
+    dono= 'Gabi Livio'
 }
