@@ -56,9 +56,7 @@ public class FileUtils {
         if (utilizadores.size() == 0 || forceRead) {
             readUsers(path);
         }
-        for (Integer key : utilizadores.keys()) {
-            System.out.println(utilizadores.get(key).toString());
-        }
+
     }
 
     public Utilizador getUser(Integer id) {
@@ -89,14 +87,14 @@ public class FileUtils {
                     myWriter.write(utilizadores.get(key).toString());
                 }
                 myWriter.close();
-                System.out.println("Successfully writen!");
+//                System.out.println("Successfully writen!");
             } else if (myfile.exists()) {
                 FileWriter myWriter2 = new FileWriter(myfile);
                 for (Integer key : utilizadores.keys()) {
                     myWriter2.append(utilizadores.get(key).toString());
                 }
                 myWriter2.close();
-                System.out.println("Successfully writen!");
+//                System.out.println("Successfully writen!");
 
             }
         } catch (IOException e) {
@@ -134,14 +132,17 @@ public class FileUtils {
         }
     }
 
+    public void addUser(Utilizador u){
+        if (!this.utilizadores.contains(u.getId())){
+            utilizadores.put(u.getId(),u);
+        }
+    }
+
     /************************  CACHES *************************/
 
     public void showCaches(String path, boolean forceRead) throws FileNotFoundException {
         if (caches.size() == 0 || forceRead) {
             readCaches(path);
-        }
-        for (Integer key : caches.keys()) {
-            System.out.println(caches.get(key).toString());
         }
     }
 
@@ -174,14 +175,14 @@ public class FileUtils {
                     myWriter.write(caches.get(key).toString());
                 }
                 myWriter.close();
-                System.out.println("Successfully writen!");
+//                System.out.println("Successfully writen!");
             } else if (myfile.exists()) {
                 FileWriter myWriter2 = new FileWriter(myfile);
                 for (Integer key : caches.keys()) {
                     myWriter2.append(caches.get(key).toString());
                 }
                 myWriter2.close();
-                System.out.println("Successfully writen!");
+//                System.out.println("Successfully writen!");
 
             }
         } catch (IOException e) {
@@ -192,17 +193,6 @@ public class FileUtils {
 
     public void deleteCache(Cache c) {
         if (caches.contains(c.getId())) {
-            for (Integer key : items.keys()) {
-                if (c == items.get(key).findCacheFromHistorico(c)) {
-                    items.get(key).removeFromHistoricoCaches(c);
-                }
-            }
-
-            for (Integer key : travelBugs.keys()) {
-                if (travelBugs.get(key).getBugCache() == c) {
-                    travelBugs.get(key).setBugCache(null);
-                }
-            }
 
             for (Integer key : c.getItems().keys()) {
 //                deleted_items.put(c.getItems().get(key).getId(), c.getItems().get(key));
@@ -224,15 +214,19 @@ public class FileUtils {
         }
     }
 
+    public void addCache(Cache cache){
+        if (!this.caches.contains(cache.getId())){
+            caches.put(cache.getId(),cache);
+        }
+    }
+
     /************************  LOGS *************************/
 
     public void showLogs(String path, boolean forceRead) throws FileNotFoundException {
         if (logs.size() == 0 || forceRead) {
             readLogs(path);
         }
-        for (Integer key : logs.keys()) {
-            System.out.println(logs.get(key).toString());
-        }
+
     }
 
     public Log getLog(Integer id) {
@@ -247,7 +241,7 @@ public class FileUtils {
                 String[] tokens = line.split(";");
                 Date sDate = new Date(tokens[1]);
                 Utilizador utilizador = utilizadores.get(Integer.parseInt(tokens[3]));
-                Log lg = new Log(Integer.parseInt(tokens[0]),sDate, tokens[2], utilizador);
+                Log lg = new Log(Integer.parseInt(tokens[0]), sDate, tokens[2], utilizador);
                 if (!logs.contains(lg.getId())) {
                     logs.put(lg.getId(), lg);
                 }
@@ -265,14 +259,14 @@ public class FileUtils {
                     myWriter.write(logs.get(key).toString());
                 }
                 myWriter.close();
-                System.out.println("Successfully writen!");
+//                System.out.println("Successfully writen!");
             } else if (myfile.exists()) {
                 FileWriter myWriter2 = new FileWriter(myfile);
                 for (Integer key : logs.keys()) {
                     myWriter2.append(logs.get(key).toString());
                 }
                 myWriter2.close();
-                System.out.println("Successfully writen!");
+//                System.out.println("Successfully writen!");
 
             }
         } catch (IOException e) {
@@ -301,14 +295,17 @@ public class FileUtils {
         }
     }
 
+    public void addLog(Log log){
+        if (!this.logs.contains(log.getId())){
+            logs.put(log.getId(),log);
+        }
+    }
+
     /************************  ITEMS *************************/
 
     public void showItems(String path, boolean forceRead) throws FileNotFoundException {
         if (items.size() == 0 || forceRead) {
             readItems(path);
-        }
-        for (Integer key : items.keys()) {
-            System.out.println(items.get(key).toString());
         }
     }
 
@@ -340,14 +337,14 @@ public class FileUtils {
                     myWriter.write(items.get(key).toString());
                 }
                 myWriter.close();
-                System.out.println("Successfully writen!");
+//                System.out.println("Successfully writen!");
             } else if (myfile.exists()) {
                 FileWriter myWriter2 = new FileWriter(myfile);
                 for (Integer key : items.keys()) {
                     myWriter2.append(items.get(key).toString());
                 }
                 myWriter2.close();
-                System.out.println("Successfully writen!");
+//                System.out.println("Successfully writen!");
 
             }
         } catch (IOException e) {
@@ -376,15 +373,17 @@ public class FileUtils {
         }
     }
 
+    public void addItem(Item item){
+        if (!this.items.contains(item.getId())){
+            items.put(item.getId(),item);
+        }
+    }
+
     /************************  LOCATIONS *************************/
 
     public void showLocals(String path, boolean forceRead) throws FileNotFoundException {
         if (localizacoes.size() == 0 || forceRead) {
             readLocals(path);
-        }
-        Set<Integer> setOfLocalizations = localizacoes.keySet();
-        for (Integer key : setOfLocalizations) {
-            System.out.println(localizacoes.get(key));
         }
     }
 
@@ -417,7 +416,7 @@ public class FileUtils {
                     myWriter.write(localizacoes.get(key).toString());
                 }
                 myWriter.close();
-                System.out.println("Successfully writen!");
+//                System.out.println("Successfully writen!");
             } else if (myfile.exists()) {
                 FileWriter myWriter2 = new FileWriter(myfile);
                 Set<Integer> locations = localizacoes.keySet();
@@ -425,7 +424,7 @@ public class FileUtils {
                     myWriter2.append(localizacoes.get(key).toString());
                 }
                 myWriter2.close();
-                System.out.println("Successfully writen!");
+//                System.out.println("Successfully writen!");
 
             }
         } catch (IOException e) {
@@ -453,14 +452,17 @@ public class FileUtils {
         }
     }
 
+    public void addLocal(Localizacao localizacao){
+        if (!this.localizacoes.containsKey(localizacao.getId())){
+            localizacoes.put(localizacao.getId(),localizacao);
+        }
+    }
+
     /************************  TRAVEL BUGS *************************/
 
     public void showTravelBugs(String path, boolean forceRead) throws FileNotFoundException {
         if (travelBugs.size() == 0 || forceRead) {
             readTravelBugs(path);
-        }
-        for (Integer key : travelBugs.keys()) {
-            System.out.println(travelBugs.get(key).toString());
         }
     }
 
@@ -474,10 +476,10 @@ public class FileUtils {
             while (scanner.hasNextLine()) {
                 line = scanner.nextLine();
                 String[] tokens = line.split(";");
-                Cache c = caches.get(Integer.parseInt(tokens[2]));
                 Utilizador ut = utilizadores.get(Integer.parseInt(tokens[3]));
+                Cache c = caches.get(Integer.parseInt(tokens[2]));
                 TravelBug tb = new TravelBug(Integer.parseInt(tokens[0]), tokens[1], c, ut);
-                if (!travelBugs.contains(tb.getId()) && caches.contains(c.getId()) && utilizadores.contains(ut.getId())) {
+                if (!travelBugs.contains(tb.getId()) && utilizadores.contains(ut.getId())) {
                     travelBugs.put(tb.getId(), tb);
                 }
             }
@@ -494,14 +496,14 @@ public class FileUtils {
                     myWriter.write(travelBugs.get(key).toString());
                 }
                 myWriter.close();
-                System.out.println("Successfully writen!");
+//                System.out.println("Successfully writen!");
             } else if (myfile.exists()) {
                 FileWriter myWriter2 = new FileWriter(myfile);
                 for (Integer key : travelBugs.keys()) {
                     myWriter2.append(travelBugs.get(key).toString());
                 }
                 myWriter2.close();
-                System.out.println("Successfully writen!");
+//                System.out.println("Successfully writen!");
 
             }
         } catch (IOException e) {
@@ -530,9 +532,16 @@ public class FileUtils {
         }
     }
 
+    public void addBug(TravelBug tb){
+        if (!this.travelBugs.contains(tb.getId())){
+            travelBugs.put(tb.getId(),tb);
+        }
+    }
+
     /******************************************************************************************************/
 
     public void list_users_visited_given_cache(Cache c) {
+        System.out.println("- Requisito 8 c) -");
         for (Integer key : utilizadores.keys()) {
             if (utilizadores.get(key).getVisitedCaches().get(c.getId()) != null)
                 System.out.println(utilizadores.get(key));
@@ -540,6 +549,7 @@ public class FileUtils {
     }
 
     public void list_premiumCaches_atleast_1Item() {
+        System.out.println("- Requisito 8 d) -");
         for (Integer key : caches.keys()) {
             if (caches.get(key).getTipo().equals("PREMIUM") && caches.get(key).getItems().size() != 0) {
                 System.out.println(caches.get(key));
@@ -548,24 +558,23 @@ public class FileUtils {
     }
 
     public void list_top5_users(Date begin, Date end) {
+        System.out.println("- Requisito 8 e) -");
         RedBlackBST<Integer, Utilizador> aux = new RedBlackBST<>();
-        int i = 5;
-        while (i > 0) {
-            for (Integer key : utilizadores.keys()) {
-                Integer count = 0;
-                RedBlackBST<Integer, Cache> vCaches = utilizadores.get(key).getVisitedCaches();
-                for (Integer ckey : vCaches.keys()) {
-                    RedBlackBST<Integer, Log> cLogs = vCaches.get(ckey).getLogs();
-                    for (Integer lkey : cLogs.keys()) {
-                        if (cLogs.get(lkey).getData().isAfter(begin) && cLogs.get(lkey).getData().isBefore(end) && cLogs.get(lkey).getUser() == utilizadores.get(key)) {
-                            count++;
-                        }
+        for (Integer key : utilizadores.keys()) {
+            Integer count = 0;
+            RedBlackBST<Integer, Cache> vCaches = utilizadores.get(key).getVisitedCaches();
+            for (Integer ckey : vCaches.keys()) {
+                RedBlackBST<Integer, Log> cLogs = vCaches.get(ckey).getLogs();
+                for (Integer lkey : cLogs.keys()) {
+                    if (cLogs.get(lkey).getData().isAfter(begin) && cLogs.get(lkey).getData().isBefore(end) && cLogs.get(lkey).getUser() == utilizadores.get(key)) {
+                        count++;
                     }
                 }
-                aux.put(count, utilizadores.get(key));
-                i--;
             }
+            aux.put(count, utilizadores.get(key));
+
         }
+
         System.out.println("TOP5 USERS:");
         for (Integer key : aux.keys()) {
             System.out.println(key + " : " + aux.get(key).getNome());
@@ -574,6 +583,7 @@ public class FileUtils {
     }
 
     public void listMost_traveled_Bugs() {
+        System.out.println("- Requisito 8 f) -");
         RedBlackBST<Integer, TravelBug> tbs = new RedBlackBST<>();
         for (Integer key : travelBugs.keys()) {
             tbs.put(travelBugs.get(key).getHistoricoCaches().size(), travelBugs.get(key));
@@ -584,4 +594,10 @@ public class FileUtils {
         }
     }
 
+    public void travelBugsStatus() {
+        System.out.println("- Requisito 9 -");
+        for (Integer key : travelBugs.keys()) {
+            System.out.println("Bug: " + travelBugs.get(key).getDescricao() + " | Ultima localizacao: [" + travelBugs.get(key).getBugCache().getLocal_cache().getLatitude() + ";" + travelBugs.get(key).getBugCache().getLocal_cache().getLongitude() + "] , " + travelBugs.get(key).getBugCache().getLocal_cache().getZona() + " | Ultimo utilizador: " + travelBugs.get(key).getDono().getNome());
+        }
+    }
 }

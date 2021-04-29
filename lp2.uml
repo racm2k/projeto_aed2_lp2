@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>edu.ufp.inf.lp2</OriginalElement>
+  <nodes>
+    <node x="-352.5000000000002" y="571.9999999999999">edu.ufp.inf.lp2.Localizacao</node>
+    <node x="-188.00000000000023" y="-339.7142857142862">edu.ufp.inf.lp2.Main</node>
+    <node x="383.4999999999998" y="351.9999999999999">edu.ufp.inf.lp2.TravelBug</node>
+    <node x="825.4999999999998" y="-88.00000000000011">edu.ufp.inf.lp2.Cache</node>
+    <node x="-352.5000000000002" y="-88.00000000000011">edu.ufp.inf.lp2.Utilizador</node>
+    <node x="299.4999999999998" y="-88.00000000000011">edu.ufp.inf.lp2.Item</node>
+    <node x="-58.50000000000023" y="571.9999999999999">edu.ufp.inf.lp2.Log</node>
+    <node x="-892.5000000000002" y="-440.0000000000001">edu.ufp.inf.lp2.FileUtils</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="edu.ufp.inf.lp2.TravelBug" target="edu.ufp.inf.lp2.Item" relationship="GENERALIZATION">
+      <point x="0.0" y="-93.5" />
+      <point x="489.9999999999998" y="115.49999999999989" />
+      <point x="489.9999999999998" y="115.49999999999989" />
+      <point x="0.0" y="159.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.6405325443786982" showDependencies="false" x="118.5" y="225.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

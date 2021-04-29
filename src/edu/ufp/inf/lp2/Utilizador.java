@@ -51,6 +51,7 @@ public class Utilizador {
     /************************  HIDDEN CACHES *************************/
 
     public void listHiddenCaches(boolean byRegion, String region) {
+        System.out.println("- Requisito 8 b) -");
         if (byRegion) {
             System.out.println(this.nome + "'s Hidden Caches na regiao " + region + " :");
             for (Integer vkey : hiddenCaches.keys()) {
@@ -70,7 +71,6 @@ public class Utilizador {
             System.out.println("addHiddenCache() - Utilizador : Cache already in ST!");
         } else {
             this.hiddenCaches.put(c.getId(), c);
-            System.out.println("Hidden Cache added!");
         }
     }
 
@@ -95,6 +95,7 @@ public class Utilizador {
     /************************  VISITED CACHES *************************/
 
     public void listVisitedCaches(boolean byRegion, String region) {
+        System.out.println("- Requisito 8 a) -");
         if (byRegion) {
             System.out.println(this.nome + "'s Caches na regiao " + region + " :");
             for (Integer vkey : visitedCaches.keys()) {
@@ -116,7 +117,6 @@ public class Utilizador {
         } else {
             this.visitedCaches.put(c.getId(), c);
             this.hiddenCaches.delete(c.getId());
-            System.out.println("Visited Cache added!");
         }
     }
 
@@ -164,10 +164,9 @@ public class Utilizador {
             System.out.println("removeTravelBug() - Utilizador : TravelBug does not exist in ST!");
     }
 
-    public void editTravelBug(TravelBug tb, Cache cache, Utilizador user) {
+    public void editTravelBug(TravelBug tb, Utilizador user) {
         if (this.travelBugs.contains(tb.getId())) {
             tb.setId(id);
-            tb.setBugCache(cache);
             tb.setDono(user);
         } else
             System.out.println("editTravelBug() - Utilizador : Error editing Travel Bug!");

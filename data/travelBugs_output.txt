@@ -20,14 +20,14 @@ TravelBug{
     id: '7',
     descrição: 'Chapas',
     cache='Cache{
-    id: '25',
+    id: '50',
     tipo: 'PREMIUM',
-    dificuldade: 'EASY',
+    dificuldade: 'HARD',
     location: 'Localizacao{
-    id: '88123',
-    latitude: '-46.6497',
-    longitude: '178.0413',
-    zona: 'Plano'
+    id: '19824',
+    latitude: '-1.164',
+    longitude: '117.6236',
+    zona: 'Vale'
 }
 '
 }
@@ -38,14 +38,14 @@ TravelBug{
     id: '10',
     descrição: 'Chave ',
     cache='Cache{
-    id: '25',
+    id: '20',
     tipo: 'PREMIUM',
-    dificuldade: 'EASY',
+    dificuldade: 'MEDIUM',
     location: 'Localizacao{
-    id: '88123',
-    latitude: '-46.6497',
-    longitude: '178.0413',
-    zona: 'Plano'
+    id: '96723',
+    latitude: '48.6601',
+    longitude: '-3.0702',
+    zona: 'Vale'
 }
 '
 }
@@ -55,6 +55,42 @@ TravelBug{
 TravelBug{
     id: '15',
     descrição: 'Parafuso de madeira',
+    cache='Cache{
+    id: '10',
+    tipo: 'BASIC',
+    dificuldade: 'HARD',
+    location: 'Localizacao{
+    id: '12000',
+    latitude: '-4.1441',
+    longitude: '-160.5752',
+    zona: 'Rochoso'
+}
+'
+}
+',
+    dono= 'Taísa Eleanora'
+}
+TravelBug{
+    id: '34',
+    descrição: 'Caixa de fosforos',
+    cache='Cache{
+    id: '80',
+    tipo: 'BASIC',
+    dificuldade: 'HARD',
+    location: 'Localizacao{
+    id: '19121',
+    latitude: '-7.6924',
+    longitude: '-158.1908',
+    zona: 'Vale'
+}
+'
+}
+',
+    dono= 'Gabi Livio'
+}
+TravelBug{
+    id: '50',
+    descrição: 'WTF PUTO',
     cache='Cache{
     id: '25',
     tipo: 'PREMIUM',
@@ -69,22 +105,4 @@ TravelBug{
 }
 ',
     dono= 'Taísa Eleanora'
-}
-TravelBug{
-    id: '34',
-    descrição: 'Caixa de fosforos',
-    cache='Cache{
-    id: '25',
-    tipo: 'PREMIUM',
-    dificuldade: 'EASY',
-    location: 'Localizacao{
-    id: '88123',
-    latitude: '-46.6497',
-    longitude: '178.0413',
-    zona: 'Plano'
-}
-'
-}
-',
-    dono= 'Gabi Livio'
 }

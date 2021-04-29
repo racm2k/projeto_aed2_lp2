@@ -11,10 +11,6 @@ public class TravelBug extends Item {
     this.dono = dono;
   }
 
-
-
-
-
   public Cache getBugCache() {
     return this.cache;
   }
