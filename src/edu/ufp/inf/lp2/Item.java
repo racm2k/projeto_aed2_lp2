@@ -1,9 +1,6 @@
 package edu.ufp.inf.lp2;
 
 import edu.princeton.cs.algs4.RedBlackBST;
-import edu.princeton.cs.algs4.Date;
-
-import java.time.LocalDateTime;
 
 
 public class Item {
@@ -20,6 +17,7 @@ public class Item {
     }
 
     public Item(Integer id) {
+        this.id=id;
     }
 
     public String getDescricao() {

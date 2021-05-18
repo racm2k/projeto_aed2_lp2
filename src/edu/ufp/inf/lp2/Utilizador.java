@@ -97,14 +97,14 @@ public class Utilizador {
     public void listVisitedCaches(boolean byRegion, String region) {
         System.out.println("- Requisito 8 a) -");
         if (byRegion) {
-            System.out.println(this.nome + "'s Caches na regiao " + region + " :");
+            System.out.println(this.nome + "'s Visited Caches na regiao " + region + " :");
             for (Integer vkey : visitedCaches.keys()) {
                 if (visitedCaches.get(vkey).getLocal_cache().getZona().equals(region)) {
                     System.out.println(visitedCaches.get(vkey));
                 }
             }
         } else {
-            System.out.println("All " + this.nome + "'s Caches:");
+            System.out.println("All " + this.nome + "'s Visited Caches:");
             for (Integer vkey : visitedCaches.keys())
                 System.out.println(vkey + " " + visitedCaches.get(vkey));
         }
@@ -114,10 +114,12 @@ public class Utilizador {
     public void addVisitedCache(Cache c) {
         if (this.visitedCaches.contains(c.getId())) {
             System.out.println("addVisitedCache() - Utilizador : Cache already in ST!");
-        } else {
+        } else if (!c.getTipo().equals("premium") || this.tipo.equals("premium") || this.tipo.equals("admin")){
             this.visitedCaches.put(c.getId(), c);
             this.hiddenCaches.delete(c.getId());
         }
+        else
+            System.out.println("Utilizador -> "+ this.nome +", "+this.tipo+" nao pode aceder a esta cache: "+c.getId()+", "+c.getTipo());
     }
 
     public void removeVisitedCache(Cache c) {

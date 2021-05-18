@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="edu.ufp.inf.lp2.JavaFx.GcController"
+          prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <MenuBar prefHeight="29.0" prefWidth="600.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <Menu mnemonicParsing="false" text="Menu Open">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#handleOpenOnAction" text="Open Text File"/>
+                                <MenuItem mnemonicParsing="false" onAction="#handleOpenBinOnAction"
+                                          text="Open Bin File"/>
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Menu Save">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#handleSaveBinAction" text="Save Bin File"/>
+                                <MenuItem mnemonicParsing="false" onAction="#handleSaveAction" text="Save Text File"/>
+                            </items>
+                        </Menu>
+                        <MenuItem mnemonicParsing="false" onAction="#handleExitAction" text="Exit"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </children>
+</GridPane>

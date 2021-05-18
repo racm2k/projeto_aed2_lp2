@@ -2,7 +2,7 @@ package edu.ufp.inf.lp2;
 
 import edu.princeton.cs.algs4.RedBlackBST;
 
-public class Cache {
+public class Cache implements Comparable<Cache> {
     private Integer id;
     private String tipo;
     private String dificuldade;
@@ -86,10 +86,10 @@ public class Cache {
     public void addItem(Item i) {
         if (this.items.contains(i.getId())) {
             System.out.println("addItem() - Cache : Item already in this cache!");
-            return;
         }
         this.items.put(i.getId(), i);
     }
+
 
     public void removeItem(Item i) {
         if (this.items.contains(i.getId())) {
@@ -110,6 +110,7 @@ public class Cache {
             System.out.println("editItem() - Cache : Item não encontrado.");
     }
 
+
     @Override
     public String toString() {
         return "Cache{\n    id: '" + id +
@@ -117,5 +118,17 @@ public class Cache {
                 "',\n    dificuldade: '" + dificuldade +
                 "',\n    location: '" + local_cache +
                 "'\n}\n";
+    }
+
+    @Override
+    public int compareTo(Cache o) {
+        if (o.getId().compareTo(this.getId())==0){
+            return 0;
+        }
+        else if (o.getId().compareTo(this.getId())>0){
+            return 1;
+        }
+        else
+            return -1;
     }
 }

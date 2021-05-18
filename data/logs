@@ -1,6 +1,6 @@
-1;11/5/2000;Primeira Nota;51841
-2;4/2/1971;Segunda Nota;96019
-3;11/6/1986;Terceira Nota;22249
-4;8/19/1996;Quarta Nota;16987
-5;5/14/1969;Quinta Nota;15701
-6;8/14/2002;Sexta Nota;72917
+1,11/5/2000,Primeira Nota,1
+2,4/2/1971,Segunda Nota,2
+3,11/6/1986,Terceira Nota,3
+4,8/19/1996,Quarta Nota,4
+5,5/14/1969,Quinta Nota,5
+6,8/14/2002,Sexta Nota,6

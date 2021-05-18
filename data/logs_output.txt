@@ -2,35 +2,35 @@ Log{
     data: '11/5/2000',
     id: '1',
     nota: 'Primeira Nota',
-    user: 'Guillermo Nilsson'
+    user: 'Manuel'
 }
 Log{
     data: '4/2/1971',
     id: '2',
     nota: 'Segunda Nota',
-    user: 'Taísa Eleanora'
+    user: 'Pedro'
 }
 Log{
     data: '11/6/1986',
     id: '3',
     nota: 'Terceira Nota',
-    user: 'Gabi Livio'
+    user: 'Fernando'
 }
 Log{
     data: '8/19/1996',
     id: '4',
     nota: 'Quarta Nota',
-    user: 'Salina Chloe'
+    user: 'Joana'
 }
 Log{
     data: '5/14/1969',
     id: '5',
     nota: 'Quinta Nota',
-    user: 'Diniz Hossi'
+    user: 'Maria'
 }
 Log{
     data: '8/14/2002',
     id: '6',
     nota: 'Sexta Nota',
-    user: 'Liza Sanda'
+    user: 'Filomena'
 }

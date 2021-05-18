@@ -1,13 +1,12 @@
 package edu.ufp.inf.lp2;
 
-import edu.princeton.cs.algs4.Date;
-import edu.princeton.cs.algs4.RedBlackBST;
-import edu.princeton.cs.algs4.ST;
+import edu.princeton.cs.algs4.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Set;
@@ -15,22 +14,22 @@ import java.util.Set;
 public class FileUtils {
 
 
-    private ST<Integer, Utilizador> utilizadores;
+    private static ST<Integer, Utilizador> utilizadores;
     public static ST<Integer, Utilizador> deleted_utilizadores;
 
-    private ST<Integer, TravelBug> travelBugs;
+    private static ST<Integer, TravelBug> travelBugs;
     public static ST<Integer, TravelBug> deleted_travelBugs;
 
-    private RedBlackBST<Integer, Cache> caches;
+    private static RedBlackBST<Integer, Cache> caches;
     public static RedBlackBST<Integer, Cache> deleted_caches;
 
-    private HashMap<Integer, Localizacao> localizacoes;
+    private static HashMap<Integer, Localizacao> localizacoes;
     public static HashMap<Integer, Localizacao> deleted_localizacoes;
 
-    private RedBlackBST<Integer, Log> logs;
+    private static RedBlackBST<Integer, Log> logs;
     public static RedBlackBST<Integer, Log> deleted_logs;
 
-    private ST<Integer, Item> items;
+    private static ST<Integer, Item> items;
     public static ST<Integer, Item> deleted_items;
 
 
@@ -48,6 +47,30 @@ public class FileUtils {
         deleted_localizacoes = new HashMap<>();
         deleted_logs = new RedBlackBST<>();
         deleted_items = new ST<>();
+    }
+
+    public ST<Integer, Utilizador> getUtilizadores() {
+        return utilizadores;
+    }
+
+    public ST<Integer, TravelBug> getTravelBugs() {
+        return travelBugs;
+    }
+
+    public RedBlackBST<Integer, Cache> getCaches() {
+        return caches;
+    }
+
+    public HashMap<Integer, Localizacao> getLocalizacoes() {
+        return localizacoes;
+    }
+
+    public RedBlackBST<Integer, Log> getLogs() {
+        return logs;
+    }
+
+    public ST<Integer, Item> getItems() {
+        return items;
     }
 
     /************************  USERS *************************/
@@ -68,7 +91,7 @@ public class FileUtils {
             String line;
             while (scanner.hasNextLine()) {
                 line = scanner.nextLine();
-                String[] tokens = line.split(";");
+                String[] tokens = line.split(",");
                 Utilizador u = new Utilizador(tokens[0], Integer.parseInt(tokens[1]), tokens[2]);
                 if (!utilizadores.contains(u.getId())) {
                     utilizadores.put(u.getId(), u);
@@ -155,7 +178,7 @@ public class FileUtils {
             String line;
             while (scanner.hasNextLine()) {
                 line = scanner.nextLine();
-                String[] tokens = line.split(";");
+                String[] tokens = line.split(",");
                 Localizacao l = getLocal(Integer.parseInt(tokens[3]));
                 Cache c = new Cache(Integer.parseInt(tokens[0]), tokens[1], tokens[2], l);
                 if (!caches.contains(c.getId()) && localizacoes.containsKey(l.getId())) {
@@ -238,7 +261,7 @@ public class FileUtils {
             String line;
             while (scanner.hasNextLine()) {
                 line = scanner.nextLine();
-                String[] tokens = line.split(";");
+                String[] tokens = line.split(",");
                 Date sDate = new Date(tokens[1]);
                 Utilizador utilizador = utilizadores.get(Integer.parseInt(tokens[3]));
                 Log lg = new Log(Integer.parseInt(tokens[0]), sDate, tokens[2], utilizador);
@@ -318,7 +341,7 @@ public class FileUtils {
             String line;
             while (scanner.hasNextLine()) {
                 line = scanner.nextLine();
-                String[] tokens = line.split(";");
+                String[] tokens = line.split(",");
                 Item i = new Item(Integer.parseInt(tokens[0]), tokens[1]);
                 if (!items.contains(i.getId())) {
                     items.put(i.getId(), i);
@@ -396,7 +419,7 @@ public class FileUtils {
             String line;
             while (scanner.hasNextLine()) {
                 line = scanner.nextLine();
-                String[] tokens = line.split(";");
+                String[] tokens = line.split(",");
                 Localizacao loc = new Localizacao(Integer.parseInt(tokens[0]), Double.parseDouble(tokens[1]), Double.parseDouble(tokens[2]), tokens[3]);
                 if (!localizacoes.containsKey(loc.getId())) {
                     localizacoes.put(loc.getId(), loc);
@@ -475,10 +498,11 @@ public class FileUtils {
             String line;
             while (scanner.hasNextLine()) {
                 line = scanner.nextLine();
-                String[] tokens = line.split(";");
+                String[] tokens = line.split(",");
+                Cache ci = caches.get(Integer.parseInt(tokens[1]));
+                Cache cd = caches.get(Integer.parseInt(tokens[2]));
                 Utilizador ut = utilizadores.get(Integer.parseInt(tokens[3]));
-                Cache c = caches.get(Integer.parseInt(tokens[2]));
-                TravelBug tb = new TravelBug(Integer.parseInt(tokens[0]), tokens[1], c, ut);
+                TravelBug tb = new TravelBug(Integer.parseInt(tokens[0]), ci,cd, ut);
                 if (!travelBugs.contains(tb.getId()) && utilizadores.contains(ut.getId())) {
                     travelBugs.put(tb.getId(), tb);
                 }
@@ -551,7 +575,7 @@ public class FileUtils {
     public void list_premiumCaches_atleast_1Item() {
         System.out.println("- Requisito 8 d) -");
         for (Integer key : caches.keys()) {
-            if (caches.get(key).getTipo().equals("PREMIUM") && caches.get(key).getItems().size() != 0) {
+            if (caches.get(key).getTipo().equals("premium") && caches.get(key).getItems().size() != 0) {
                 System.out.println(caches.get(key));
             }
         }
@@ -593,11 +617,28 @@ public class FileUtils {
             System.out.println(key + " : " + tbs.get(key).getDescricao());
         }
     }
+//
+//    public void travelBugsStatus() {
+//        System.out.println("- Requisito 9 -");
+//        for (Integer key : travelBugs.keys()) {
+//            System.out.println("Bug: " + travelBugs.get(key).getDescricao() + " | Ultima localizacao: [" + travelBugs.get(key).getBugCache().getLocal_cache().getLatitude() + ";" + travelBugs.get(key).getBugCache().getLocal_cache().getLongitude() + "] , " + travelBugs.get(key).getBugCache().getLocal_cache().getZona() + " | Ultimo utilizador: " + travelBugs.get(key).getDono().getNome());
+//        }
+//    }
 
-    public void travelBugsStatus() {
-        System.out.println("- Requisito 9 -");
-        for (Integer key : travelBugs.keys()) {
-            System.out.println("Bug: " + travelBugs.get(key).getDescricao() + " | Ultima localizacao: [" + travelBugs.get(key).getBugCache().getLocal_cache().getLatitude() + ";" + travelBugs.get(key).getBugCache().getLocal_cache().getLongitude() + "] , " + travelBugs.get(key).getBugCache().getLocal_cache().getZona() + " | Ultimo utilizador: " + travelBugs.get(key).getDono().getNome());
+    public void shortest_path(int start, int finish, EdgeWeightedDigraphAED2 graph){
+        DijkstraSP_AED2 sp = new DijkstraSP_AED2(graph,start);
+        if(sp.hasPathTo(finish)){
+            double total_time=0;
+            double total_distance=0;
+            DecimalFormat timeFormat= new DecimalFormat("0.00");
+            for (DirectedEdge e : sp.pathTo(finish)) {
+                StdOut.print(e + "   ");
+                total_time+=e.time();
+                total_distance+=e.weight();
+            }
+            System.out.println(timeFormat.format(total_time) + "mins & "+timeFormat.format(total_distance)+"kms from Cache ["+ start+"] to Cache ["+finish+"]");
+
         }
     }
+
 }
