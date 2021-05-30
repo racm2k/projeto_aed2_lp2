@@ -118,8 +118,8 @@ public class FileUtils {
                 }
                 myWriter2.close();
 //                System.out.println("Successfully writen!");
-
             }
+            System.out.println("Wrote "+utilizadores.size()+" Users;");
         } catch (IOException e) {
             System.out.println("An error ocurred");
             e.printStackTrace();
@@ -208,6 +208,8 @@ public class FileUtils {
 //                System.out.println("Successfully writen!");
 
             }
+            System.out.println("Wrote "+caches.size()+" Caches;");
+
         } catch (IOException e) {
             System.out.println("An error ocurred");
             e.printStackTrace();
@@ -370,6 +372,8 @@ public class FileUtils {
 //                System.out.println("Successfully writen!");
 
             }
+            System.out.println("Wrote "+items.size()+" Items;");
+
         } catch (IOException e) {
             System.out.println("An error ocurred");
             e.printStackTrace();
@@ -450,6 +454,8 @@ public class FileUtils {
 //                System.out.println("Successfully writen!");
 
             }
+            System.out.println("Wrote "+localizacoes.size()+" Locals;");
+
         } catch (IOException e) {
             System.out.println("An error ocurred");
             e.printStackTrace();
@@ -530,6 +536,8 @@ public class FileUtils {
 //                System.out.println("Successfully writen!");
 
             }
+            System.out.println("Wrote "+travelBugs.size()+" Bugs;");
+
         } catch (IOException e) {
             System.out.println("An error ocurred");
             e.printStackTrace();
@@ -640,5 +648,6 @@ public class FileUtils {
 
         }
     }
+
 
 }

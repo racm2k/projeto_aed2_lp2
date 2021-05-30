@@ -2,7 +2,9 @@ package edu.ufp.inf.lp2;
 
 import edu.princeton.cs.algs4.RedBlackBST;
 
-public class Cache implements Comparable<Cache> {
+import java.io.Serializable;
+
+public class Cache implements Comparable<Cache>, Serializable {
     private Integer id;
     private String tipo;
     private String dificuldade;

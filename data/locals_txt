@@ -1,0 +1,108 @@
+Localizacao{
+    id: '1',
+    latitude: '41.1720859',
+    longitude: '-8.6148178',
+    zona: 'norte'
+}
+Localizacao{
+    id: '2',
+    latitude: '41.1605747',
+    longitude: '-8.5855818',
+    zona: ' norte'
+}
+Localizacao{
+    id: '3',
+    latitude: '41.1666825',
+    longitude: '-8.6751895',
+    zona: 'norte'
+}
+Localizacao{
+    id: '4',
+    latitude: '41.158881',
+    longitude: '-8.6337921',
+    zona: 'norte'
+}
+Localizacao{
+    id: '5',
+    latitude: '41.1492281',
+    longitude: '-8.6120275',
+    zona: 'norte'
+}
+Localizacao{
+    id: '6',
+    latitude: '41.1504982',
+    longitude: '-8.6654695',
+    zona: 'norte'
+}
+Localizacao{
+    id: '7',
+    latitude: '41.2421226',
+    longitude: '-8.6807401',
+    zona: 'norte'
+}
+Localizacao{
+    id: '8',
+    latitude: '40.2094433',
+    longitude: '-8.4208601',
+    zona: 'centro'
+}
+Localizacao{
+    id: '9',
+    latitude: '40.2027321',
+    longitude: '-8.4333746',
+    zona: 'centro'
+}
+Localizacao{
+    id: '10',
+    latitude: '40.188891',
+    longitude: '-8.410378',
+    zona: 'centro'
+}
+Localizacao{
+    id: '11',
+    latitude: '40.6394116',
+    longitude: '-8.6621375',
+    zona: 'centro'
+}
+Localizacao{
+    id: '12',
+    latitude: '40.6597787',
+    longitude: '-7.9136921',
+    zona: 'centro'
+}
+Localizacao{
+    id: '13',
+    latitude: '38.6942546',
+    longitude: '-9.2129457',
+    zona: 'sul'
+}
+Localizacao{
+    id: '14',
+    latitude: '38.7288464',
+    longitude: '-9.1481854',
+    zona: 'sul'
+}
+Localizacao{
+    id: '15',
+    latitude: '38.7756417',
+    longitude: '-9.1325313',
+    zona: 'sul'
+}
+Localizacao{
+    id: '16',
+    latitude: '38.7527152',
+    longitude: '-9.1869627',
+    zona: 'sul'
+}
+Localizacao{
+    id: '17',
+    latitude: '38.7542524',
+    longitude: '-9.1235235',
+    zona: 'sul'
+}
+Localizacao{
+    id: '18',
+    latitude: '38.9369329',
+    longitude: '-9.3290594',
+    zona: 'sul'
+}

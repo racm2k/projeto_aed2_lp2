@@ -1,0 +1,93 @@
+TravelBug{
+    id: '10',
+    descrição: 'null',
+    cache_inicial='Cache{
+    id: '1',
+    tipo: 'basic',
+    dificuldade: 'hard',
+    location: 'Localizacao{
+    id: '1',
+    latitude: '41.1720859',
+    longitude: '-8.6148178',
+    zona: 'norte'
+}
+'
+}
+',
+    cache_destino='Cache{
+    id: '15',
+    tipo: 'basic',
+    dificuldade: 'medium',
+    location: 'Localizacao{
+    id: '15',
+    latitude: '38.7756417',
+    longitude: '-9.1325313',
+    zona: 'sul'
+}
+'
+}
+',
+    dono= 'Manuel'
+}
+TravelBug{
+    id: '20',
+    descrição: 'null',
+    cache_inicial='Cache{
+    id: '2',
+    tipo: 'basic',
+    dificuldade: 'medium',
+    location: 'Localizacao{
+    id: '2',
+    latitude: '41.1605747',
+    longitude: '-8.5855818',
+    zona: ' norte'
+}
+'
+}
+',
+    cache_destino='Cache{
+    id: '17',
+    tipo: 'basic',
+    dificuldade: 'hard',
+    location: 'Localizacao{
+    id: '17',
+    latitude: '38.7542524',
+    longitude: '-9.1235235',
+    zona: 'sul'
+}
+'
+}
+',
+    dono= 'Pedro'
+}
+TravelBug{
+    id: '30',
+    descrição: 'null',
+    cache_inicial='Cache{
+    id: '3',
+    tipo: 'basic',
+    dificuldade: 'easy',
+    location: 'Localizacao{
+    id: '3',
+    latitude: '41.1666825',
+    longitude: '-8.6751895',
+    zona: 'norte'
+}
+'
+}
+',
+    cache_destino='Cache{
+    id: '12',
+    tipo: 'basic',
+    dificuldade: 'hard',
+    location: 'Localizacao{
+    id: '12',
+    latitude: '40.6597787',
+    longitude: '-7.9136921',
+    zona: 'centro'
+}
+'
+}
+',
+    dono= 'Fernando'
+}

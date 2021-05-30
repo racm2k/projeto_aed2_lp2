@@ -4,7 +4,9 @@ import edu.princeton.cs.algs4.RedBlackBST;
 import edu.princeton.cs.algs4.ST;
 import edu.princeton.cs.algs4.StdOut;
 
-public class Utilizador {
+import java.io.Serializable;
+
+public class Utilizador implements Serializable {
 
     private String tipo;
     private Integer id;

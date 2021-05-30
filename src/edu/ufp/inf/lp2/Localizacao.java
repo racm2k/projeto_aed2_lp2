@@ -1,7 +1,9 @@
 package edu.ufp.inf.lp2;
 
 
-public class Localizacao {
+import java.io.Serializable;
+
+public class Localizacao implements Serializable {
     private Integer id;
     private double latitude;
     private double longitude;

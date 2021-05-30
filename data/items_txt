@@ -1,0 +1,64 @@
+Item{
+    id: '1',
+    descricao: 'canudo'
+}
+Item{
+    id: '2',
+    descricao: 'livro'
+}
+Item{
+    id: '3',
+    descricao: 'oculos'
+}
+Item{
+    id: '4',
+    descricao: 'bola'
+}
+Item{
+    id: '5',
+    descricao: 'brinquedo'
+}
+Item{
+    id: '6',
+    descricao: 'camisola'
+}
+Item{
+    id: '7',
+    descricao: 'pedra'
+}
+Item{
+    id: '8',
+    descricao: 'flor'
+}
+Item{
+    id: '9',
+    descricao: 'areia'
+}
+Item{
+    id: '10',
+    descricao: 'flauta'
+}
+Item{
+    id: '11',
+    descricao: 'bilhetes-aviao'
+}
+Item{
+    id: '12',
+    descricao: 'capa'
+}
+Item{
+    id: '13',
+    descricao: 'borracha'
+}
+Item{
+    id: '14',
+    descricao: 'chaves'
+}
+Item{
+    id: '15',
+    descricao: 'ovos-moles'
+}
+Item{
+    id: '16',
+    descricao: 'espada'
+}

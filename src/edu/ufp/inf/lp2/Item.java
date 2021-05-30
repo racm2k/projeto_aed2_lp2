@@ -2,8 +2,10 @@ package edu.ufp.inf.lp2;
 
 import edu.princeton.cs.algs4.RedBlackBST;
 
+import java.io.Serializable;
 
-public class Item {
+
+public class Item implements Serializable {
 
     private Integer id;
     private String descricao;

@@ -47,6 +47,10 @@ import java.text.NumberFormat;
  * @author Kevin Wayne
  */
 public class SymbolDigraphAED2 {
+    public ST<Cache, Integer> getSt() {
+        return st;
+    }
+
     private ST<Cache, Integer> st;  // string -> index
     private Cache[] keys;           // index  -> string
     private EdgeWeightedDigraphAED2 graph;           // the underlying digraph
@@ -70,11 +74,11 @@ public class SymbolDigraphAED2 {
             String[] a = in.readLine().split(delimiter);
             Cache c = fu.getCache(Integer.parseInt(a[0]));
             Cache c1 = fu.getCache(Integer.parseInt(a[1]));
-            System.out.println(fu.getCache(2));
-            if (!st.contains(c1)) {
+//            System.out.println(fu.getCache(2));
+            if (st.get(c1) == null) {
                 st.put(c1, st.size());
             }
-            if (!st.contains(c)) {
+            if (st.get(c)== null) {
                 st.put(c, st.size());
             }
         }

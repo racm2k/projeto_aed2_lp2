@@ -1,11 +1,13 @@
-package edu.ufp.inf.lp2.JavaFx;
+package edu.ufp.inf.lp2;
 
+import edu.ufp.inf.lp2.FileUtils;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 public class MainGC extends Application {
@@ -22,6 +24,8 @@ public class MainGC extends Application {
 
         primaryStage.setTitle("GeoCaching");
         primaryStage.setScene(scene);
+
         primaryStage.show();
+
     }
 }

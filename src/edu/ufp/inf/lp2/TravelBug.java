@@ -1,6 +1,8 @@
 package edu.ufp.inf.lp2;
 
-public class TravelBug extends Item {
+import java.io.Serializable;
+
+public class TravelBug extends Item implements Serializable {
   private Cache cache_inicial;
   private Cache cache_destino;
   private Utilizador dono;

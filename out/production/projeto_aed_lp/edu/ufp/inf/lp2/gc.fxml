@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ufp.inf.lp2.GcController">
+    <children>
+        <TabPane layoutX="-1.0" layoutY="25.0" prefHeight="376.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Grafo">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="345.0" prefWidth="600.0">
+                     <children>
+                        <Group fx:id="graphGroup" layoutX="137.0" layoutY="80.0" />
+                        <HBox layoutY="270.0" prefHeight="77.0" prefWidth="600.0">
+                           <children>
+                              <TextField fx:id="startCacheSPField" promptText="Starting Cache ID" translateX="30.0" translateY="35.0" />
+                              <Label prefHeight="17.0" prefWidth="237.0" text="Shortest Path between two given cache IDs" translateX="15.0" />
+                              <TextField fx:id="endCacheSPField" layoutX="10.0" layoutY="10.0" promptText="Ending Cache ID" translateX="-150.0" translateY="35.0" />
+                              <Button fx:id="spButtonID" mnemonicParsing="false" onAction="#handleSpButtonAction" text="Calculate" translateX="-100.0" translateY="35.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Caches">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="cachesTable" prefHeight="288.0" prefWidth="600.0">
+                                    <columns>
+                                        <TableColumn fx:id="cacheidCol" onEditCommit="#handleEditCacheAction" prefWidth="75.0" text="ID" />
+                                        <TableColumn fx:id="cacheTipoCol" onEditCommit="#handleEditCacheAction" prefWidth="147.0" text="TIPO" />
+                                        <TableColumn fx:id="cacheDifCol" onEditCommit="#handleEditCacheAction" prefWidth="193.0" text="DIFICULDADE" />
+                                        <TableColumn fx:id="cacheLocalCol" onEditCommit="#handleEditCacheAction" prefWidth="184.0" text="LOCALIZAÇÃO" />
+                                    </columns>
+                                </TableView>
+                                <HBox layoutY="290.0" prefHeight="55.0" prefWidth="600.0">
+                                    <children>
+                                        <TextField fx:id="cacheIdField" prefHeight="26.0" prefWidth="75.0" promptText="Id" translateX="10.0" translateY="10.0" />
+                                        <TextField fx:id="cacheTipoField" layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="83.0" promptText="tipo" translateX="20.0" translateY="10.0" />
+                                        <TextField fx:id="cacheDifField" layoutX="128.0" layoutY="10.0" prefHeight="26.0" prefWidth="83.0" promptText="dificuldade" translateX="30.0" translateY="10.0" />
+                                        <TextField fx:id="cacheLocField" layoutX="246.0" layoutY="10.0" prefHeight="26.0" prefWidth="78.0" promptText="localizacao" translateX="40.0" translateY="10.0" />
+                                        <Button mnemonicParsing="false" onAction="#handleAddCacheAction" text="Add" translateX="90.0" translateY="10.0" />
+                                        <Button layoutX="329.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleRemoveCacheAction" text="Remove" translateX="110.0" translateY="10.0" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab id="usersTable" text="Utilizadores">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="usersTable" prefHeight="286.0" prefWidth="600.0">
+                                    <columns>
+                                        <TableColumn fx:id="usertypeCol" onEditCommit="#handleEditUserAction" prefWidth="173.0" text="Tipo" />
+                                        <TableColumn fx:id="useridCol" onEditCommit="#handleEditUserAction" prefWidth="218.0" text="ID" />
+                                        <TableColumn fx:id="nomeCol" onEditCommit="#handleEditUserAction" prefWidth="208.0" text="NOME" />
+                                    </columns>
+                                </TableView>
+                                <HBox layoutY="286.0" prefHeight="60.0" prefWidth="600.0">
+                                    <children>
+                                        <TextField fx:id="userTipoField" prefHeight="26.0" prefWidth="75.0" promptText="tipo" translateX="10.0" translateY="10.0" />
+                                        <TextField fx:id="userIdField" layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="83.0" promptText="id" translateX="20.0" translateY="10.0" />
+                                        <TextField fx:id="userNameField" layoutX="128.0" layoutY="10.0" prefHeight="26.0" prefWidth="83.0" promptText="nome" translateX="30.0" translateY="10.0" />
+                                        <Button mnemonicParsing="false" onAction="#handleAddUserAction" text="Add" translateX="90.0" translateY="10.0" />
+                                        <Button layoutX="329.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleRemoveUserAction" text="Remove" translateX="110.0" translateY="10.0" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="TravelBugs">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="bugsTable" prefHeight="286.0" prefWidth="600.0">
+                                    <columns>
+                                        <TableColumn fx:id="bugID" onEditCommit="#handleEditBugAction" prefWidth="106.0" text="ID" />
+                                        <TableColumn fx:id="bugStartCache" onEditCommit="#handleEditBugAction" prefWidth="148.0" text="Cache Inicial" />
+                                        <TableColumn fx:id="bugEndCache" onEditCommit="#handleEditBugAction" prefWidth="159.0" text="Cache Final" />
+                                        <TableColumn fx:id="bugOwner" minWidth="0.0" onEditCommit="#handleEditBugAction" prefWidth="186.0" text="Dono" />
+                                    </columns>
+                                </TableView>
+                                <HBox layoutY="286.0" prefHeight="60.0" prefWidth="600.0">
+                                    <children>
+                                        <TextField fx:id="tbIdField" prefHeight="26.0" prefWidth="75.0" promptText="Id" translateX="10.0" translateY="10.0" />
+                                        <TextField fx:id="tbCIField" layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="83.0" promptText="cache_inicial" translateX="20.0" translateY="10.0" />
+                                        <TextField fx:id="tbCFField" layoutX="128.0" layoutY="10.0" prefHeight="26.0" prefWidth="83.0" promptText="cache_final" translateX="30.0" translateY="10.0" />
+                                        <TextField fx:id="tbDonoField" layoutX="246.0" layoutY="10.0" prefHeight="26.0" prefWidth="78.0" promptText="dono" translateX="40.0" translateY="10.0" />
+                                        <Button mnemonicParsing="false" onAction="#handleAddBugAction" text="Add" translateX="90.0" translateY="10.0" />
+                                        <Button layoutX="329.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleRemoveBugAction" text="Remove" translateX="110.0" translateY="10.0" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Items">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="itemsTable" prefHeight="286.0" prefWidth="600.0">
+                                    <columns>
+                                        <TableColumn fx:id="itemID" onEditCommit="#handleEditItemAction" prefWidth="300.0" text="ID" />
+                                        <TableColumn fx:id="itemName" onEditCommit="#handleEditItemAction" prefWidth="299.0" text="Nome" />
+                                    </columns>
+                                </TableView>
+                                <HBox layoutY="286.0" prefHeight="60.0" prefWidth="600.0">
+                                    <children>
+                                        <TextField fx:id="itemIdField" prefHeight="26.0" prefWidth="75.0" promptText="Id" translateX="10.0" translateY="10.0" />
+                                        <TextField fx:id="itemNomeField" layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="83.0" promptText="nome" translateX="20.0" translateY="10.0" />
+                                        <Button mnemonicParsing="false" onAction="#handleAddItemAction" text="Add" translateX="90.0" translateY="10.0" />
+                                        <Button layoutX="329.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleRemoveItemAction" text="Remove" translateX="110.0" translateY="10.0" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Localizacoes">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="337.0" prefWidth="600.0">
+                            <children>
+                                <TableView fx:id="localsTable" prefHeight="281.0" prefWidth="600.0">
+                                    <columns>
+                                        <TableColumn fx:id="locID" onEditCommit="#handleEditLocalAction" prefWidth="123.0" text="ID" />
+                                        <TableColumn fx:id="locLat" onEditCommit="#handleEditLocalAction" prefWidth="156.0" text="Latitude" />
+                                        <TableColumn fx:id="locLong" onEditCommit="#handleEditLocalAction" prefWidth="162.0" text="Longitude" />
+                                        <TableColumn fx:id="locZona" onEditCommit="#handleEditLocalAction" prefWidth="158.0" text="Zona" />
+                                    </columns>
+                                </TableView>
+                                <HBox layoutY="281.0" prefHeight="67.0" prefWidth="600.0">
+                                    <children>
+                                        <TextField fx:id="locIdField" prefHeight="26.0" prefWidth="75.0" promptText="Id" translateX="10.0" translateY="10.0" />
+                                        <TextField fx:id="locLatField" layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="83.0" promptText="latitude" translateX="20.0" translateY="10.0" />
+                                        <TextField fx:id="locLongField" layoutX="128.0" layoutY="10.0" prefHeight="26.0" prefWidth="83.0" promptText="longitude" translateX="30.0" translateY="10.0" />
+                                        <TextField fx:id="locZonaField" layoutX="246.0" layoutY="10.0" prefHeight="26.0" prefWidth="78.0" promptText="zona" translateX="40.0" translateY="10.0" />
+                                        <Button mnemonicParsing="false" onAction="#handleAddLocAction" text="Add" translateX="90.0" translateY="10.0" />
+                                        <Button layoutX="329.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleRemoveLocAction" text="Remove" translateX="110.0" translateY="10.0" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <MenuBar>
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <Menu mnemonicParsing="false" text="Menu Open">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#handleOpenOnAction" text="Open Text File" />
+                                <MenuItem mnemonicParsing="false" onAction="#handleOpenBinOnAction" text="Open Bin File" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Menu Save">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#handleSaveOnAction" text="Save Text File" />
+                                <MenuItem mnemonicParsing="false" onAction="#handleSaveBinOnAction" text="Save Bin File" />
+                            </items>
+                        </Menu>
+                        <MenuItem mnemonicParsing="false" onAction="#handleExitOnAction" text="Exit" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+
+    </children>
+</AnchorPane>
